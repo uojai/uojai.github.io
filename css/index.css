@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    /*font-family: "Segoe UI",SegoeUI,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    /*color: #04A1FF;*/
+    color: #000;
+    background-color: #ffffff
+}
+
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p.subtitle {
+    font-size: 1.125em;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    line-height: 170%;
+}
+
+.shadow {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1) !important;
+    transition: .3s ease;
+    display: block !important;
+}
+
+.shadow:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .3) !important;
+    transition: .3s ease;
+    display: block !important;
+}
+
+.text-gray {
+    color: gray;
+}
+
+.bg-white {
+    background-color: #fff !important;
+}
+.bg-black {
+    background-color: #000 !important;
+}
+.bg_alternate {
+    background-color: #f7f7f7;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    min-width: 50rem;
+    width: 100%; /* Adjust width as needed */
+    margin: 0 auto; /* Center horizontally */
+    /*border: 1px solid green;*/
+
+}
+
+.Contact {
+    color: #04A1FF;
+}
+
+.contact-name {
+    /*color: #04A1FF;*/
+    font-weight: 200;
+
+}
+
+.contact-email {
+    color: #04A1FF;
+}
+
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+
+.contact-email {
+    color: #04A1FF;
+}
+
+.mt5 {
+    margin-top: 5rem;
+}
+
+.ml1 {
+    margin-left: 1rem;
+}
+.ml2 {
+    margin-left: 2rem;
+}
+.ml3 {
+    margin-left: 3rem;
+}
+.ml5 {
+    margin-left: 5rem;
+}
+.mr1 {
+    margin-right: 1rem;
+}
+.mr2 {
+    margin-right: 2rem;
+}
+.mr3 {
+    margin-right: 3rem;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+.card {
+    /*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.125);*/
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.card-body {
+    padding: 25px 30px;
+}
+
+.card-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 1.25rem;
+    -moz-column-gap: 1.25rem;
+    column-gap: 1.25rem;
+    orphans: 1;
+    widows: 1;
+    column-gap: 30px;
+}
+
+.card-columns .card {
+    margin-bottom: 0.75rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.card .read-more-sec {
+    padding-top: 15px;
+    border-top: 1px solid #E3E3E3;
+}
+
+.justify-content-center {
+    justify-content: center !important;
+}
+
+.people {
+    display: flex;
+    flex-wrap: wrap;
+    /*margin-right: -15px;*/
+    /*margin-left: -15px;*/
+    font-size: 0.8rem;
+    text-align: center;
+    /*border: 1px solid red;*/
+}
+
+.person {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    justify-content: center !important;
+    font-size: 0.8rem;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    /*margin-right: -15px;*/
+    /*margin-left: -15px;*/
+    flex: 0 0 auto;
+    width: 20%;
+    max-width: 100%;
+    min-width: 150px;
+}
+
+.section {
+    display: flex;
+    min-width: 50rem;
+    width: 50rem; /* Adjust width as needed */
+}
+
+.column {
+    flex: 1; /* Both columns will have equal width */
+    padding: 10px;
+}
+
+.overview {
+    width: 22rem;
+    max-width: 22rem;
+}
+
+.images {
+    width: 28rem;
+    max-width: 28rem;
+}
+
+.portrait-title h2 {
+    font-size: 1rem;
+    /*font-size: 1.75em;*/
+    font-weight: 300;
+    color: #000000;
+    margin: 20px 0 10px 0;
+}
+
+.person img {
+    vertical-align: middle;
+    border-style: none;
+    display: block;
+}
+
+.person .avatar {
+    width: 80%;
+    max-width: 150px;
+    height: auto;
+}
+
+.avatar {
+    width: 270px;
+    height: 270px;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.avatar-circle {
+    border-radius: 50%;
+}
+
+.news, .footer, .members {
+    text-align: left;
+    width: 44rem;
+    max-width: 44rem;
+    /*border: 1px solid red;*/
+}
+
+.footer {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #fff;
+}
+
+.ailab-logo {
+    width: 16rem;
+}
+
+.projects {
+    width: 30rem;
+    /*-webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .25));*/
+    /*filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .25));*/
+}
