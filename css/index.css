@@ -7,7 +7,8 @@ body {
     line-height: 1.5;
     /*color: #04A1FF;*/
     color: #000;
-    background-color: #ffffff
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2 {
@@ -29,15 +30,24 @@ p.subtitle {
 }
 
 .shadow {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .1) !important;
-    transition: .3s ease;
+    /*box-shadow: 0 5px 15px rgba(0, 0, 0, .1) !important;*/
+    /*transition: .3s ease;*/
     display: block !important;
+
+    -webkit-box-shadow: 0 0 36px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 36px rgba(0, 0, 0, .1);
+    -webkit-transition: opacity .2s linear, -webkit-box-shadow .2s linear;
+    transition: opacity .2s linear, -webkit-box-shadow .2s linear;
+    transition: box-shadow .2s linear, opacity .2s linear;
+    transition: box-shadow .2s linear, opacity .2s linear, -webkit-box-shadow .2s linear;
 }
 
 .shadow:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .3) !important;
+    /*box-shadow: 0 5px 15px rgba(0, 0, 0, .3) !important;*/
     transition: .3s ease;
     display: block !important;
+    -webkit-box-shadow: 0 0 64px rgba(0, 0, 0, .22);
+    box-shadow: 0 0 64px rgba(0, 0, 0, .22);
 }
 
 .text-gray {
@@ -147,16 +157,22 @@ p.subtitle {
 
 .course-card {
     text-align: center;
-    height: 34rem;
+    height: 36rem;
     max-width: 18rem;
 }
 
 .news-card {
     text-align: center;
-    height: 22rem;
+    height: 25rem;
     max-width: 25rem;
 }
 .news-description {
+    /*font-family: "Roboto", sans-serif;*/
+    font-size: 16px;
+    font-weight: 400;
+    /*line-height: 24px;*/
+    color: #616161;
+
     /*font-size: 0.8rem;*/
     /*font-weight: 300;*/
     text-align: left;
@@ -203,7 +219,9 @@ a:active {
 .mt5 {
     margin-top: 5rem;
 }
-
+.mt3 {
+    margin-top: 3rem;
+}
 .ml1 {
     margin-left: 1rem;
 }
@@ -233,16 +251,24 @@ a:active {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    /*background-color: #fff;*/
     background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
+    /*border: 1px solid rgba(0, 0, 0, 0.125);*/
+    /*border-radius: 0.25rem;*/
+    background: #fff;
+    border-radius: 10px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    overflow: hidden;
 }
 
 .card {
     /*box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.125);*/
-    margin-bottom: 15px;
-    margin-top: 15px;
+    /*margin-bottom: 15px;*/
+    /*margin-top: 15px;*/
 }
 
 .card-body {
@@ -313,14 +339,26 @@ a:active {
     min-width: 150px;
 }
 
+.pl-2 {
+    padding-left: 1rem;
+}
+
 .section {
+    /*margin: 0;*/
     display: flex;
     align-items: center;
     /*min-width: 50rem;*/
     /*width: 50rem; !* Adjust width as needed *!*/
-    width: 50rem;
-    padding: 0.5rem 1rem;
+    /*width: 50rem;*/
+    /*padding: 0.5rem 1rem;*/
     /*border: 1px solid red;*/
+
+    /*margin: 48px auto;*/
+    /*padding: 0 40px;*/
+    position: relative;
+    width: auto;
+    max-width: 682px;
+
 }
 
 .courses {
@@ -333,7 +371,7 @@ a:active {
 
 .column {
     flex: 1; /* Both columns will have equal width */
-    padding: 10px;
+    padding: 15px;
 }
 
 .overview {
@@ -386,13 +424,13 @@ a:active {
 
 .footer {
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 300;
     color: #fff;
 }
 
 .ailab-logo {
-    width: 16rem;
+    width: 12rem;
 }
 
 .about {
@@ -405,7 +443,7 @@ a:active {
 }
 
 .projects {
-    width: 30rem;
+    width: 20rem;
     /*-webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .25));*/
     /*filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .25));*/
 }
