@@ -19108,6 +19108,10 @@ html[dir=rtl] .text-right {
 }
 
 
+.aibootcamp-program {
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
 .aibootcamp {
     max-width: 1200px;
     /*border: 1px solid red;*/
