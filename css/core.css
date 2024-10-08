@@ -5066,15 +5066,29 @@ button[disabled],[type=submit][disabled],[type=button][disabled],button[disabled
 
 .button.button--ghost {
     background-color: transparent;
-    border: 1px solid #dbdde0;
+    /*border: 1px solid #dbdde0;*/
     border-radius: 4px;
-    color: #eb7837;
+    /*color: #f4cc76;*/
+    color: rgb(23, 151, 237);
     display: inline-block;
     font-size: 14px;
     font-weight: 600;
     padding: 10px 16px;
     width: 100%;
+    min-width: 130px;
     transition-property: background-color
+}
+
+.w-460 {
+    min-width: 460px !important;
+    max-width: 460px !important;
+    /*border: 1px solid red;*/
+}
+
+.w-300 {
+    min-width: 300px !important;
+    max-width: 300px !important;
+    /*border: 1px solid red;*/
 }
 
 /*.button.button--ghost {*/
@@ -5091,8 +5105,10 @@ button[disabled],[type=submit][disabled],[type=button][disabled],button[disabled
 /*}*/
 
 .button.button--ghost:hover {
-    background-color: #eb7837;
-    color: #fff
+    background-color: #f4cc76;
+    color: #fff;
+    outline: 1px solid rgba(255,255,255,0.3);
+    outline-offset: -6px;
 }
 
 .button.button--ghost:hover svg {
@@ -5100,18 +5116,18 @@ button[disabled],[type=submit][disabled],[type=button][disabled],button[disabled
 }
 
 .button.button--ghost:focus {
-    background-color: #eb7837;
+    background-color: #f4cc76;
     color: #fff;
     outline: 1px solid rgba(255,255,255,0.3);
     outline-offset: -5px;
 }
 
 .button.button--ghost:hover,.button.button--ghost:focus {
-    text-decoration: underline
+    text-decoration: none;
 }
 
 .button.button--ghost svg {
-    fill: #eb7837
+    fill: #f4cc76
 }
 
 .button.button--ghost[disabled],.button.button--ghost[disabled]:focus,.button.button--ghost[disabled]:hover {
@@ -15039,10 +15055,10 @@ input[type=text].azure-nav-search-form__search-input--primary {
     /*background-color: #f4f5f6;*/
     color: #1a1a1f;
     /*padding: 48px 0 36px;*/
-    padding-left: 10px;
+    /*padding-left: 10px;*/
     text-align: center;
     padding-bottom: 20px;
-    padding-top: 20px;
+    /*padding-top: 20px;*/
     font-size: 12px;
     font-family: 'Segoe UI',SegoeUI,'Helvetica Neue',Helvetica,Arial,sans-serif;
 }

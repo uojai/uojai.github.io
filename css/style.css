@@ -731,7 +731,7 @@ template {
 }
 
 p.subtitle {
-    font-size: 1.125em;
+    font-size: 0.980em;
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
     line-height: 170%;
@@ -19010,8 +19010,8 @@ html[dir=rtl] .text-right {
     /*transition: .3s ease;*/
     /*display: block !important;*/
 
-    -webkit-box-shadow: 0 0 36px rgba(0, 0, 0, .1);
-    box-shadow: 0 0 36px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 16px rgba(0, 0, 0, .1);
     -webkit-transition: opacity .2s linear, -webkit-box-shadow .2s linear;
     transition: opacity .2s linear, -webkit-box-shadow .2s linear;
     transition: box-shadow .2s linear, opacity .2s linear;
@@ -19022,19 +19022,20 @@ html[dir=rtl] .text-right {
     /*box-shadow: 0 5px 15px rgba(0, 0, 0, .3) !important;*/
     transition: .3s ease;
     /*display: block !important;*/
-    -webkit-box-shadow: 0 0 64px rgba(0, 0, 0, .22);
-    box-shadow: 0 0 64px rgba(0, 0, 0, .22);
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .22);
+    box-shadow: 0 0 15px rgba(235, 197, 116, 0.6);
 }
 
+
 .image-shadow {
-    -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .1));
-    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, .1));
+    -webkit-filter: drop-shadow(5px 5px 6px rgba(0, 0, 0, .21));
+    filter: drop-shadow(5px 5px 6px rgba(0, 0, 0, .21));
     transition: .3s ease;
 }
 
 .image-shadow:hover {
-    -webkit-filter: drop-shadow(3px 3px 3px rgba(109, 178, 221, .95));
-    filter: drop-shadow(3px 3px 3px rgba(109, 178, 221, .95));
+    -webkit-filter: drop-shadow(3px 3px 3px #f4cc76);
+    filter: drop-shadow(3px 3px 3px #f4cc76);
     transition: .3s ease;
 }
 
@@ -19132,7 +19133,8 @@ html[dir=rtl] .text-right {
 /*}*/
 
 .uojai-logo {
-    width: 100px;
+    margin-left: 120px !important;
+    width: 200px;
     cursor: pointer;
     /*float: right;*/
     /*margin-right: 20px;*/
@@ -19840,7 +19842,7 @@ html[dir=rtl] .text-right {
 }
 
 .button-selected {
-    background-color: #eb7837 !important;
+    background-color: #f4cc76 !important;
     /*background-color: #0078d4 !important;*/
     color: white!important;
 }
@@ -20035,6 +20037,33 @@ html[dir=rtl] .text-right {
 
 .projects-page {
     background: #F9F9F9;
+}
+
+.text-4xl {
+    font-size: 6.25rem;
+    line-height: 6.5rem;
+
+}
+
+.oswald-700 {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.projects-shadow {
+    -webkit-filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, .21));
+    filter: drop-shadow(3px 3px 11px rgba(0, 0, 0, .21));
+    transition: .3s ease;
+}
+
+
+.projects {
+    /*margin-top: 130px !important;*/
+    max-width: 300px !important;
+    /*border: 1px solid red;*/
+
 }
 
 .project {
