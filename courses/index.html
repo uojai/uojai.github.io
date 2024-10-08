@@ -10,7 +10,7 @@
     <meta name="description" content="Deep Learning">
     <link rel="stylesheet" href="../css/core.css" type="text/css">
     <link rel="stylesheet" href="../css/grid.css" type="text/css">
-    <link rel="stylesheet" href="../css/style.css?v=2" type="text/css">
+    <link rel="stylesheet" href="../css/style.css?v=3" type="text/css">
 </head>
 <body>
 <div>
@@ -18,14 +18,16 @@
         <div class="d-flex mx-lg-0">
             <div class="w-100 ml-5 mr-5 mt-3">
                 <div class="depth-lg-none bg-lg-transparent material-lg-card bg-lg-transparent depth-lg-none">
-                    <img onclick="GotoPage('https://uojai.github.io/')" class="uojai-logo ml-3 image-shadow" src="../images/uojai.png">
+                    <div class="pt-5a pb-5">
+                        <img onclick="GotoPage('https://uojai.github.io/')" class="uojai-logo image-shadow" src="../images/uojai.png?v=1">
+                    </div>
                     <div class="ml-2 mr-3 mt-3 mb-3 link-group">
                         <a href="/resources" class="button button--ghost shadow">
                             <span>AI Resources</span>
                         </a>
-                        <a href="/aibootcamp" class="button button--ghost shadow">
-                            <span>AI Bootcamp</span>
-                        </a>
+<!--                        <a href="/aibootcamp" class="button button&#45;&#45;ghost shadow">-->
+<!--                            <span>AI Bootcamp</span>-->
+<!--                        </a>-->
                         <a href="/courses" class="button button--ghost button-selected">
                             <span>Courses</span>
                         </a>
@@ -91,6 +93,24 @@
                             </div>
 
                         </div>
+                        <div class="col mb-5 mb-md-0">
+
+                            <div class="card course-card shadow">
+                                <div class="card-body pt-3">
+                                    <h4>AI Summer Bootcamp</h4>
+                                    <img class="course-logo" src="../images/bootcamp.png" alt="AI Summer Bootcamp">
+                                    <p class="course-description">
+                                        An intensive, hands-on program to equip participants
+                                        with the skills to build and deploy data-driven solutions. The program covers
+                                        data science, machine learning, and deep learning.
+                                    </p>
+                                    <div class="read-more-sec">
+                                        <a href="https://uojai.github.io/aibootcamp/" target="_blank" title="Tiny ML" class="arrow">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
 <!--                        <div class="col mb-5 mb-md-0">-->
 <!--                            <div class="card course-card shadow">-->
 <!--                                <div class="card-body pt-3">-->
@@ -113,7 +133,7 @@
         </div>
     </section>
     <section>
-        <div class="azure-footer aem-GridColumn aem-GridColumn--default--12">
+        <div class="azure-footer mt-5">
             <footer id="azure-footer" class="ml-5 text-left azure-footer-nav acom-nav-service en-us" data-module="footer">
                 <span>© University of Juba 2024</span>
             </footer>
