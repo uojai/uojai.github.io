@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <div>
+        <h1 class="text-light-primary fs-44 fw-semibold mb-4">Building a Conversational Q&amp;A Chatbot With A Gemini Pro Free API</h1>
+    </div>
+
+</div>
+
+<section class="common-style-py detail-page pt-4">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xl-8 col-lg-12 col-md-12 col-sm-12 offset-xl-1">
+
+                <div class="content-box" id="article-start">
+                    <h2 class="wp-block-heading" id="h-introduction">Introduction</h2>
+                    <p>In recent years, chatbots have become increasingly popular to provide customer service, answer questions, and engage with users. They can be used on websites, messaging platforms, and social media. Suppose we offer any service, and you want to build a chatbot service. First, we collect the user question data and then train the model (from scratch). However, recently, we have had powerful <a href="https://www.analyticsvidhya.com/blog/2023/03/an-introduction-to-large-language-models-llms/" target="_blank" rel="noreferrer noopener">LLM models</a> like Gemini Pro. In the beginning, most companies used the <a href="https://www.analyticsvidhya.com/blog/2019/09/demystifying-bert-groundbreaking-nlp-framework/" target="_blank" rel="noreferrer noopener">BERT Model</a>. The capabilities of Gemini Pro have become increasingly prominent.</p>
+                    <p>This tutorial will show you how to build a conversational Q&amp;A chatbot using the Gemini Pro API. Gemini Pro is a cloud-based natural language processing (<a href="https://www.analyticsvidhya.com/blog/2017/01/ultimate-guide-to-understand-implement-natural-language-processing-codes-in-python/" target="_blank" rel="noreferrer noopener">NLP</a>) platform with various features for building conversational AI applications.</p>
+                    <figure class="wp-block-embed is-type-rich is-provider-embed-handler wp-block-embed-embed-handler wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+                        <iframe title="Building a Conversational Q&amp;A Chatbot With A Gemini Pro Free API" width="500" height="281" src="https://www.youtube.com/embed/d_qpZ3Gg-xQ?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+                    </div><figcaption class="wp-element-caption">Q&amp;A chatabot</figcaption></figure>
+                    <p><strong>Learning Objective</strong></p>
+                    <ul>
+                        <li>Gain a comprehensive understanding of the Gemini Pro API by exploring its features and capabilities for constructing intelligent conversational AI applications.</li>
+                        <li>Follow a complete guide to create a free Gemini Pro API account, ensuring access to the platform’s functionalities.</li>
+                        <li>Learn how to develop a chatbot with the ability to engage in conversations and provide answers to questions.</li>
+                        <li>Access step-by-step instructions for creating a virtual environment for your project, ensuring a clean and isolated development environment.</li>
+                    </ul>
+
+                    <div class="wp-block-yoast-seo-table-of-contents yoast-table-of-contents">
+                        <div class="accordion my-5" id="accordionContent">
+                            <div class="accordion-item border-0 rounded-4 bg-light">
+
+                                <div>
+                                    <h1>Table of Contents</h1>
+                                </div>
+
+                                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionContent" style="">
+                                    <div class="accordion-body pt-0">
+
+                                        <ol>
+                                            <li><a href="#h-prerequisites" data-level="2">Prerequisites</a></li>
+                                            <li><a href="#h-what-is-gemini" data-level="2">What is Gemini?</a></li>
+                                            <li><a href="#h-what-is-gemini-pro" data-level="2">What is Gemini Pro?</a></li>
+                                            <li><a href="#h-comparison-of-gemini-amp-gemini-pro" data-level="2">Comparison of Gemini &amp; Gemini Pro</a></li>
+                                            <li><a href="#h-why-should-one-use-gemini-pro-api" data-level="2">Why Should One Use Gemini Pro API?</a></li>
+                                            <li><a href="#h-steps-to-nbsp-build-a-conversational-q-amp-a-chatbot-with-a-gemini-pro-free-api" data-level="2">Steps to&nbsp;Build a Conversational Q&amp;A Chatbot With A Gemini Pro Free API</a>
+                                                <ul>
+                                                    <li><a href="#h-step-1-set-up-gemini-pro-api" data-level="3">Step 1: Set Up Gemini Pro API</a></li>
+                                                    <li><a href="#h-step-2-creating-env-file" data-level="3">Step 2: Creating .env File</a></li>
+                                                    <li><a href="#h-step-3-initialize-the-venv" data-level="3">Step 3: Initialize the Venv</a></li>
+                                                    <li><a href="#h-step-4-crafting-requirements-txt" data-level="3">Step 4: Crafting requirements.txt</a></li>
+                                                    <li><a href="#h-step-5-write-the-chatbot-code" data-level="3">Step 5: Write the Chatbot Code</a></li>
+                                                    <li><a href="#h-step-6-run-the-chat-bot-application" data-level="3">Step 6: Run the Chat Bot Application</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#h-advantages-of-building-a-conversational-q-amp-a-chatbot" data-level="2">Advantages of Building a Conversational Q&amp;A Chatbot</a></li>
+                                            <li><a href="#h-frequently-asked-questions" data-level="2">Frequently Asked Questions</a></li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="wp-block-heading" id="h-prerequisites">Prerequisites</h2>
+                    <ul>
+                        <li>Obtain a <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noreferrer noopener nofollow">Gemini Pro API key</a><b> </b>by creating a free account on the Gemini Pro platform. The API key is essential for authenticating your requests and accessing the features of the Gemini Pro API.</li>
+                        <li>Python 3.10 or Later</li>
+                    </ul>
+                    <ul>
+                        <li>A text editor (vs. code) or Pycharm</li>
+                        <li>Conda or Miniconda</li>
+                    </ul>
+                    <h2 class="wp-block-heading" id="h-what-is-gemini">What is Gemini?</h2>
+                    <p>Gemini is an AI technology developed by Google that appears to be focused on advancements in language understanding and processing. It is likely part of Google’s suite of machine learning and artificial intelligence tools, designed to handle complex tasks such as natural language understanding, language translation, content generation, and possibly more, depending on the specific capabilities of the Gemini system. This technology could be integrated into various Google products and services to enhance user experience with more intuitive and intelligent interactions.</p>
+                    <ul>
+                        <li>It was introduced on<b> </b>December 13, 2023, as part of the T5 (Text-To-Text Transfer Transformer) model family.</li>
+                        <li>Gemini is our most flexible model yet — able to run efficiently on everything from data centers to mobile devices.</li>
+                        <li>Its state-of-the-art capabilities will significantly enhance how developers and enterprise customers build and scale with AI.</li>
+                        <li>Gemini has been used to develop various products and services, <b>including Google Translate, Google Search, and Gmail.</b></li>
+                    </ul>
+                    <p>Gemini has three variants: <b>Gemini Ultra, Gemini, Pro, and Gemini Nano</b>.</p>
+
+
+                    <h2 class="wp-block-heading" id="h-what-is-gemini-pro">What is Gemini Pro?</h2>
+                    <p>Gemini Pro is like Gemini’s big sibling, part of the T5 (Text-To-Text Transfer Transformer) family, just like its sibling. If Gemini is the clever language wizard, then Gemini Pro is the wizard with upgraded powers – the advanced version.</p>
+                    <p>In simple terms, Gemini Pro is an advanced version of Gemini with enhanced capabilities and powers.</p>
+                    <h2 class="wp-block-heading" id="h-comparison-of-gemini-amp-gemini-pro">Comparison of Gemini &amp; Gemini Pro</h2>
+                    <div class="table-responsive mb-3">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Gemini</th>
+                                <th>Gemini Pro</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Model size</td>
+                                <td>Large</td>
+                                <td>Extra large</td>
+                            </tr>
+                            <tr>
+                                <td>Training data</td>
+                                <td>Massive dataset of text and code</td>
+                                <td>Even larger dataset of text and code</td>
+                            </tr>
+                            <tr>
+                                <td>Performance</td>
+                                <td>Good</td>
+                                <td>Excellent</td>
+                            </tr>
+                            <tr>
+                                <td>Efficiency</td>
+                                <td>Good</td>
+                                <td>Excellent</td>
+                            </tr>
+                            <tr>
+                                <td>Applications</td>
+                                <td>Text generation, machine translation, summarization, question answering</td>
+                                <td>Text generation, machine translation, summarization, question answering, chatbot development</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2 class="wp-block-heading" id="h-why-should-one-use-gemini-pro-api">Why Should One Use Gemini Pro API?</h2>
+                    <p>The Gemini Pro API, provided by Google, empowers developers to integrate advanced language models into their applications. Leveraging state-of-the-art natural language processing capabilities, Gemini Pro enables us to create dynamic and context-aware chatbots that respond intelligently to user queries.</p>
+                    <h2 class="wp-block-heading" id="h-steps-to-nbsp-build-a-conversational-q-amp-a-chatbot-with-a-gemini-pro-free-api">Steps to&nbsp;Build a Conversational Q&amp;A Chatbot With A Gemini Pro Free API</h2>
+                    <p>Let’s delve into the precise steps for crafting a sophisticated Conversational Q&amp;A Chatbot using the Gemini Pro Free API.</p>
+                    <h3 class="wp-block-heading" id="h-step-1-set-up-gemini-pro-api">Step 1: Set Up Gemini Pro API</h3>
+                    <ul>
+                        <li>Visit <a href="https://ai.google.dev/?gad_source=1" target="_blank" rel="noreferrer noopener nofollow">Google Ai Studio </a></li>
+                        <li>Click the Get API Key in Google Studio Ai</li>
+                    </ul>
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img decoding="async" src="https://av-eks-lekhak.s3.amazonaws.com/media/__sized__/article_images/Screenshot_from_2023-12-25_18-10-21-thumbnail_webp-600x300.webp" alt="Building a Conversational Q&amp;A Chatbot With A Gemini Pro Free API"><figcaption class="wp-element-caption">Source: Google Studio AI</figcaption></figure></div>
+                    <ul>
+                        <li>Click <b>Get API Key</b></li>
+                    </ul>
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img decoding="async" src="https://av-eks-lekhak.s3.amazonaws.com/media/__sized__/article_images/Screenshot_from_2023-12-25_18-10-56-thumbnail_webp-600x300.webp" alt="gemini pro"><figcaption class="wp-element-caption">Source: Google Studio AI</figcaption></figure></div>
+                    <ul>
+                        <li>Create the API key.</li>
+                    </ul>
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img decoding="async" src="https://av-eks-lekhak.s3.amazonaws.com/media/__sized__/article_images/Screenshot_from_2023-12-25_18-12-24-thumbnail_webp-600x300.webp" alt="gemini pro"></figure></div>
+                    <ul>
+                        <li>Copy the key</li>
+                    </ul>
+                    <h3 class="wp-block-heading" id="h-step-2-creating-env-file">Step 2: <strong>Creating .env File</strong></h3>
+                    <ul>
+                        <li><b>Create the File: </b>Open a text editor and create a new file. Save it with the name .env. Ensure no file extension (like .txt) and the file starts with a dot.</li>
+                        <li><b>Add Environment Variables: </b>In the .env file, you can define your environment variables. For example:</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-ini"><span class="hljs-attr">GOOGLE_API_KEY</span>=your_google_api_key</code></pre>
+                    <h3 class="wp-block-heading" id="h-step-3-initialize-the-venv">Step 3: Initialize the Venv</h3>
+                    <ul>
+                        <li>First Create Directory</li>
+                        <li>open the terminal and paste it</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-bash"><span class="hljs-built_in">mkdir</span> chatbot_project
+
+<span class="hljs-built_in">cd</span> chatbot_project</code></pre>
+                    <ul>
+                        <li>Create ./venv (Vrtial environment)</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-bash">conda create -p ./venv python=3.11 -y</code></pre>
+                    <ul>
+                        <li>Activate the environment</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-bash">conda activate ./venv</code></pre>
+                    <h3 class="wp-block-heading" id="h-step-4-crafting-requirements-txt">Step 4: <strong>Crafting requirements.txt</strong></h3>
+                    <ul>
+                        <li>Create a requirements.txt file</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-bash"><span class="hljs-built_in">touch</span> requirements.txt</code></pre>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-undefined">streamlit
+google-generativeai
+python-dotenv</code></pre>
+                    <p>And save the above packages.</p>
+                    <ul>
+                        <li>Installing the packages</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-undefined">pip install -r requirements.txt</code></pre>
+                    <h3 class="wp-block-heading" id="h-step-5-write-the-chatbot-code">Step 5: <strong>Write the Chatbot Code</strong></h3>
+                    <ul>
+                        <li><b>Load Environment Variables: </b>This part of the code uses the dotenv library to load environment variables from a file named .env in the current directory. This is a common practice to keep sensitive information, such as API keys, separate from the code.</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-python"><span class="hljs-keyword">from</span> dotenv <span class="hljs-keyword">import</span> load_dotenv
+load_dotenv() <span class="hljs-comment">## loading all the environment variables</span>
+</code></pre>
+                    <ul>
+                        <li><b>Import Libraries:</b> Here, you import the necessary libraries. streamlit is used for creating interactive web applications, os is a standard library for interacting with the operating system, and Google.generativeai is the module providing the Gemini AI functionality.</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-javascript"><span class="hljs-keyword">import</span> streamlit <span class="hljs-keyword">as</span> st
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> google.<span class="hljs-property">generativeai</span> <span class="hljs-keyword">as</span> genai</code></pre>
+                    <ul>
+                        <li><b>Configure Gemini AI:</b> This line configures the Gemini AI by setting its API key. The API key is retrieved from the environment variables using <b>os.getenv.</b><b></b></li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-lua">genai.configure(api_key=<span class="hljs-built_in">os</span>.<span class="hljs-built_in">getenv</span>(<span class="hljs-string">"GOOGLE_API_KEY"</span>))</code></pre>
+                    <ul>
+                        <li><b>Initialize Gemini Pro Model:</b> You initialize the Gemini Pro model for generating responses. It seems like you’re creating a chatbot using the Gemini Pro model.</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-ini"><span class="hljs-attr">model</span> = genai.GenerativeModel(<span class="hljs-string">"gemini-pro"</span>)
+<span class="hljs-attr">chat</span> = model.start_chat(history=[])
+</code></pre>
+                    <ul>
+                        <li><b>Define Function for Getting Responses:</b> This function sends a user’s question to the Gemini Pro model and retrieves the response. It looks like the responses are obtained in a streaming fashion.</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_gemini_response</span>(<span class="hljs-params">question</span>):
+    response = chat.send_message(question, stream=<span class="hljs-literal">True</span>)
+    <span class="hljs-keyword">return</span> response
+</code></pre>
+                    <ul>
+                        <li><b>Initialize Streamlit App:</b> These lines initialize a Streamlit app, setting the page title and displaying a header.</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-bash">st.set_page_config(page_title=<span class="hljs-string">"Q&amp;A Demo"</span>)
+st.header(<span class="hljs-string">"Gemini LLM Application"</span>)
+</code></pre>
+                    <ul>
+                        <li><b>Initialize Session State for Chat History:</b> This checks if the chat history exists in the Streamlit session state. If not, it initializes an empty list to store the chat history.</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-bash"><span class="hljs-keyword">if</span> <span class="hljs-string">'chat_history'</span> not <span class="hljs-keyword">in</span> st.session_state:
+    st.session_state[<span class="hljs-string">'chat_history'</span>] = []
+</code></pre>
+                    <ul>
+                        <li><b>Take User Input and Display Responses: </b>Here, you create a text input field for the user to input a question. When the user clicks the “Ask the question” button, it triggers the get_gemini_response function, displaying the responses and updating the chat history.</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-lua"><span class="hljs-built_in">input</span> = st.text_input(<span class="hljs-string">"Input: "</span>, key=<span class="hljs-string">"input"</span>)
+submit = st.button(<span class="hljs-string">"Ask the question"</span>)
+
+<span class="hljs-keyword">if</span> submit <span class="hljs-keyword">and</span> <span class="hljs-built_in">input</span>:
+    response = get_gemini_response(<span class="hljs-built_in">input</span>)
+    st.session_state[<span class="hljs-string">'chat_history'</span>].append((<span class="hljs-string">"You"</span>, <span class="hljs-built_in">input</span>))
+    st.subheader(<span class="hljs-string">"The Response is"</span>)
+    <span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> response:
+        st.<span class="hljs-built_in">write</span>(chunk.text)
+        st.session_state[<span class="hljs-string">'chat_history'</span>].append((<span class="hljs-string">"Bot"</span>, chunk.text))
+</code></pre>
+                    <ul>
+                        <li><b>Display Chat History: </b>Finally, the code displays the chat history, showing the interactions between the user (“You”) and the chatbot (“Bot”).</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-scss">st<span class="hljs-selector-class">.subheader</span>("The Chat History is")
+for role, text in st<span class="hljs-selector-class">.session_state</span><span class="hljs-selector-attr">[<span class="hljs-string">'chat_history'</span>]</span>:
+    st.<span class="hljs-built_in">write</span>(f<span class="hljs-string">"{role}: {text}"</span>)
+</code></pre>
+                    <h4 class="wp-block-heading">Create app.py: create app.y file<b style="color: revert; font-size: revert;">&nbsp;</b> </h4>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-bash"><span class="hljs-built_in">touch</span> app.py</code></pre>
+                    <p>Paste the code below:</p>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-python"><span class="hljs-comment">## loading all the environment variables</span>
+<span class="hljs-keyword">from</span> dotenv <span class="hljs-keyword">import</span> load_dotenv
+load_dotenv()
+
+<span class="hljs-keyword">import</span> streamlit <span class="hljs-keyword">as</span> st
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> google.generativeai <span class="hljs-keyword">as</span> genai
+
+genai.configure(api_key=os.getenv(<span class="hljs-string">"GOOGLE_API_KEY"</span>))
+
+<span class="hljs-comment">## function to load Gemini Pro model and get repsonses</span>
+model=genai.GenerativeModel(<span class="hljs-string">"gemini-pro"</span>)
+chat = model.start_chat(history=[])
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">get_gemini_response</span>(<span class="hljs-params">question</span>):
+
+    response=chat.send_message(question,stream=<span class="hljs-literal">True</span>)
+    <span class="hljs-keyword">return</span> response
+
+<span class="hljs-comment">##initialize our streamlit app</span>
+
+st.set_page_config(page_title=<span class="hljs-string">"Q&amp;A Demo"</span>)
+
+st.header(<span class="hljs-string">"Gemini LLM Application"</span>)
+
+<span class="hljs-comment"># Initialize session state for chat history if it doesn't exist</span>
+<span class="hljs-keyword">if</span> <span class="hljs-string">'chat_history'</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> st.session_state:
+    st.session_state[<span class="hljs-string">'chat_history'</span>] = []
+
+<span class="hljs-built_in">input</span>=st.text_input(<span class="hljs-string">"Input: "</span>,key=<span class="hljs-string">"input"</span>)
+submit=st.button(<span class="hljs-string">"Ask the question"</span>)
+
+<span class="hljs-keyword">if</span> submit <span class="hljs-keyword">and</span> <span class="hljs-built_in">input</span>:
+    response=get_gemini_response(<span class="hljs-built_in">input</span>)
+    <span class="hljs-comment"># Add user query and response to session state chat history</span>
+    st.session_state[<span class="hljs-string">'chat_history'</span>].append((<span class="hljs-string">"You"</span>, <span class="hljs-built_in">input</span>))
+    st.subheader(<span class="hljs-string">"The Response is"</span>)
+    <span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> response:
+        st.write(chunk.text)
+        st.session_state[<span class="hljs-string">'chat_history'</span>].append((<span class="hljs-string">"Bot"</span>, chunk.text))
+st.subheader(<span class="hljs-string">"The Chat History is"</span>)
+
+<span class="hljs-keyword">for</span> role, text <span class="hljs-keyword">in</span> st.session_state[<span class="hljs-string">'chat_history'</span>]:
+    st.write(<span class="hljs-string">f"<span class="hljs-subst">{role}</span>: <span class="hljs-subst">{text}</span>"</span>)
+</code></pre>
+                    <p>This line imports the load_dotenv function from the dotenv module. This function loads environment variables from a file (in this case, the .env file).</p>
+                    <h3 class="wp-block-heading" id="h-step-6-run-the-chat-bot-application">Step 6: Run the Chat Bot Application</h3>
+                    <ul>
+                        <li>Run the Streamlit application using the following command:</li>
+                    </ul>
+                    <pre class="wp-block-code"><code data-highlighted="yes" class="hljs language-undefined">streamlit run app.py</code></pre>
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img decoding="async" src="https://av-eks-lekhak.s3.amazonaws.com/media/__sized__/article_images/Screenshot_from_2023-12-25_18-29-01_1Ia7R0y-thumbnail_webp-600x300.webp" alt="&quot;is gemini api free"></figure></div>
+                    <p><i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Fig: UI Of Chat Bot Conversation</i></p>
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img decoding="async" src="https://av-eks-lekhak.s3.amazonaws.com/media/__sized__/article_images/Screenshot_from_2023-12-25_18-29-37_PhhBDNF-thumbnail_webp-600x300.webp" alt="&quot;is gemini api free"></figure></div>
+                    <div class="wp-block-image">
+                        <figure class="aligncenter"><img decoding="async" src="https://av-eks-lekhak.s3.amazonaws.com/media/__sized__/article_images/Screenshot_from_2023-12-25_18-29-43-thumbnail_webp-600x300.webp" alt="is gemini api free"></figure></div>
+                    <p><i>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Fig: UI Of Chat Bot Conversation(History)</i></p>
+                    <h2 class="wp-block-heading" id="h-advantages-of-building-a-conversational-q-amp-a-chatbot">Advantages of Building a Conversational Q&amp;A Chatbot</h2>
+                    <ul>
+                        <li><b>24/7 Availability:</b> Chatbots provide round-the-clock assistance, ensuring users can get answers to their queries at any time.</li>
+                        <li><b>Efficient Problem Resolution:</b> Q&amp;A chatbots quickly address common user queries, leading to faster problem resolution and improved user experience.</li>
+                        <li><b>Cost Savings: </b>Implementation of chatbots reduces the need for human intervention in routine tasks, resulting in significant cost savings.</li>
+                        <li><b>Data Collection and Analysis: </b>Chatbots collect valuable user data, offering insights for enhancing products or services and understanding user behavior.</li>
+                        <li><b>Adaptability and Continuous Improvement:</b> Chatbots can be trained to adapt to evolving user needs and continuously improve their responses.</li>
+                    </ul>
+                    <h2 class="wp-block-heading" id="h-conclusion">Conclusion</h2>
+                    <p>This guide introduced you to the powerful Gemini Pro API for creating smart chatbots. We covered setting up your free API account, creating a chatbot to chat and answer questions, and organizing your project in a virtual environment. Now equipped with these skills, you can bring your chatbot ideas to life. Happy coding!</p>
+                    <h4 class="wp-block-heading" id="h-nbsp-key-takeaways">&nbsp;Key Takeaways</h4>
+                    <ol>
+                        <li>Gain a deep understanding of Gemini Pro API, a robust tool for constructing intelligent conversational AI applications.</li>
+                        <li>Follow a comprehensive guide to create a free Gemini Pro API Key.</li>
+                        <li>Learn the process of creating a chatbot that engages in conversations and effectively answers user questions, showcasing the capabilities of Gemini Pro API.</li>
+                        <li>Understand the importance of creating a virtual environment for your project, ensuring a clean and structured development space for building innovative chatbot applications.</li>
+                    </ol>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-5229672700622157&amp;output=html&amp;adk=2802480300&amp;adf=1238630986&amp;abgtt=6&amp;lmt=1720998519&amp;plaf=1%3A2%2C2%3A2%2C7%3A2&amp;plat=1%3A128%2C2%3A128%2C3%3A128%2C4%3A128%2C8%3A128%2C9%3A32776%2C16%3A8388608%2C17%3A32%2C24%3A32%2C25%3A32%2C30%3A1081344%2C32%3A32%2C41%3A32%2C42%3A32&amp;format=0x0&amp;url=https%3A%2F%2Fwww.analyticsvidhya.com%2Fblog%2F2023%2F12%2Fbuilding-a-conversational-qa-chatbot-with-a-gemini-pro-free-api%2F&amp;pra=5&amp;wgl=1&amp;easpi=0&amp;aihb=0&amp;asro=0&amp;ailel=32~27~1~2~4~6~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~30&amp;aiael=32~27~1~2~4~6~7~8~9~10~11~12~13~14~15~16~17~18~19~20~21~24~30&amp;aifxl=32_7~27_15~30_19&amp;aiixl=32_9~27_3~30_6&amp;aslmct=0.7&amp;asamct=0.7&amp;aisaib=1&amp;uach=WyJtYWNPUyIsIjExLjUuMiIsIng4NiIsIiIsIjEyNi4wLjY0NzguMTI3IixudWxsLDAsbnVsbCwiNjQiLFtbIk5vdC9BKUJyYW5kIiwiOC4wLjAuMCJdLFsiQ2hyb21pdW0iLCIxMjYuMC42NDc4LjEyNyJdLFsiR29vZ2xlIENocm9tZSIsIjEyNi4wLjY0NzguMTI3Il1dLDBd&amp;dt=1720998519222&amp;bpp=8&amp;bdt=136&amp;idt=186&amp;shv=r20240709&amp;mjsv=m202407100101&amp;ptt=9&amp;saldr=aa&amp;abxe=1&amp;cookie=ID%3D5600bb2df7c1e3d1%3AT%3D1720998439%3ART%3D1720998439%3AS%3DALNI_MYXGoIrxqkRLVbQ6HykpyYAF3386w&amp;gpic=UID%3D00000e7692a760af%3AT%3D1720998439%3ART%3D1720998439%3AS%3DALNI_Ma9Gzj9-zUJxjJwe_hPolafcMu57w&amp;eo_id_str=ID%3D14aa93afcd8d3bd3%3AT%3D1720998439%3ART%3D1720998439%3AS%3DAA-AfjZlQ9dQcMsJ7EpxgId2dswN&amp;nras=1&amp;correlator=2253032304346&amp;frm=20&amp;pv=2&amp;ga_vid=57424993.1720998439&amp;ga_sid=1720998519&amp;ga_hid=509188062&amp;ga_fc=1&amp;u_tz=-240&amp;u_his=3&amp;u_h=1440&amp;u_w=2560&amp;u_ah=1333&amp;u_aw=2560&amp;u_cd=24&amp;u_sd=2&amp;dmc=8&amp;adx=-12245933&amp;ady=-12245933&amp;biw=1573&amp;bih=1023&amp;scr_x=0&amp;scr_y=4732&amp;eid=44759875%2C44759926%2C44759837%2C31084867%2C31085139%2C44798934%2C95331833%2C95334508%2C95334525%2C95334578%2C95334830%2C31085182%2C95335245%2C31078663%2C31078665%2C31078668%2C31078670&amp;oid=2&amp;pvsid=3438595149745617&amp;tmod=352176184&amp;uas=0&amp;nvt=2&amp;fsapi=1&amp;ref=https%3A%2F%2Fwww.google.com%2F&amp;fc=1920&amp;brdim=23%2C25%2C23%2C25%2C2560%2C25%2C1573%2C1144%2C1573%2C1023&amp;vis=1&amp;rsz=%7C%7Cs%7C&amp;abl=NS&amp;fu=32768&amp;bc=31&amp;bz=1&amp;td=1&amp;tdf=2&amp;psd=W251bGwsbnVsbCxudWxsLDNd&amp;nt=1&amp;ifi=1&amp;uci=a!1&amp;fsb=1&amp;dtd=199" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins>
+
+</body>
+
+</html>
