@@ -288,6 +288,15 @@ header h3 {
     border-bottom: 1px solid rgba(241, 126, 28, 1.0) !important;
 }
 
+.cyber-security:hover {
+    box-shadow: 0 8px 16px rgba(23, 149, 234, 0.3) !important; /* Soft blue shadow on hover */
+}
+
+.cyber-security {
+    /*background-color: rgba(241, 126, 28, 0.2);*/
+    border-bottom: 1px solid rgb(23, 149, 234) !important;
+}
+
 
 .student-card:hover {
     transform: translateY(-10px);
