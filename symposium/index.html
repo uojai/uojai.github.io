@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCSIT Senior Thesis Symposium</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    @keyframes floatHeart {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-60px) scale(1.4); opacity: 0; }
+    }
+    .floating-heart {
+      position: absolute;
+      animation: floatHeart 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+      pointer-events: none;
+    }
+    .apple-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+    }
+    .apple-card:hover {
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08), 0 8px 15px -6px rgba(0, 0, 0, 0.04);
+      border-color: rgba(203, 213, 225, 0.9);
+    }
+  </style>
+</head>
+<body class="bg-[#f5f5f7] text-slate-900 min-h-screen font-sans selection:bg-blue-500 selection:text-white antialiased">
+
+<header class="pt-12 pb-12 px-6 text-center max-w-4xl mx-auto">
+  <div class="flex justify-center mb-6">
+    <img src="../images/uojai_logo_blue.png" alt="University of Juba Logo" class="h-20 md:h-24 w-auto object-contain">
+  </div>
+
+  <span class="text-xs uppercase tracking-widest text-blue-600 font-semibold bg-blue-50/80 px-3 py-1.5 rounded-full border border-blue-100">
+      Class of 2026 Academic Showcase
+    </span>
+  <h1 class="text-4xl md:text-6xl font-extrabold mt-5 tracking-tight text-slate-900">
+    SCSIT Senior Thesis Symposium
+  </h1>
+  <p class="text-slate-500 mt-4 text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed">
+    Explore groundbreaking research projects presented by graduating seniors in 1-slide pitches.
+  </p>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 pb-24">
+  <div id="student-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  </div>
+</main>
+<!--<script type="module" src="firebase.js"></script>-->
+<script type="module">
+  // Import the database instance from firebase.js
+  // 1. Import db from your local firebase.js file
+  import { db } from './firebase.js';
+
+  // 2. Import Firebase functions directly from the CDN
+  import { ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+  // DO NOT add "const db = ..." or "let db;" here!
+
+  let students = [];
+
+  // Load JSON metadata
+  async function loadSymposiumData() {
+    try {
+      const response = await fetch('./students.json');
+      students = await response.json();
+
+      renderGrid(students);
+      attachFirebaseListeners(students);
+    } catch (error) {
+      console.error('Failed to load students.json:', error);
+    }
+  }
+
+  // Render cards with direct PDF click action and inline like button
+  function renderGrid(data) {
+    const grid = document.getElementById('student-grid');
+    grid.innerHTML = data.map(student => {
+      const isLiked = localStorage.getItem(`liked_${student.id}`);
+
+      return `
+          <div onclick="openPdfDirectly('${student.id}')" class="apple-card group rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
+            <div>
+              <div class="flex flex-col items-center text-center mb-4">
+                <img src="${student.headshot}" alt="${student.name}" class="w-12 h-12 rounded-full object-cover border border-slate-200/80 shadow-sm mb-1.5">
+                <p class="text-xs font-medium text-slate-600 leading-tight">${student.name}</p>
+                <span class="text-[10px] font-medium text-slate-400 uppercase tracking-wide mt-0.5">${student.department}</span>
+              </div>
+
+              <div class="relative overflow-hidden rounded-xl mb-4 aspect-video bg-white border border-slate-200 p-2 flex items-center justify-center shadow-inner">
+                <img src="${student.architectureImage}" alt="System Architecture Preview" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out">
+              </div>
+
+              <h2 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug text-center">${student.title}</h2>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-slate-200/60 mt-5 pt-3 text-xs text-slate-400">
+              <span class="flex items-center space-x-1.5 font-medium">
+                <i class="fa-regular fa-eye text-slate-400"></i>
+                <span id="views-${student.id}" class="text-slate-600">0</span> views
+              </span>
+
+              <button id="like-btn-${student.id}" onclick="handleLike(event, '${student.id}')" class="flex items-center space-x-1.5 ${isLiked ? 'text-rose-500 bg-rose-50 border-rose-200' : 'text-slate-400 hover:text-rose-500 hover:bg-rose-50'} px-2.5 py-1 rounded-full border border-slate-200/80 transition-colors">
+                <i class="fa-solid fa-heart"></i>
+                <span id="likes-${student.id}">0</span>
+              </button>
+            </div>
+          </div>
+        `;
+    }).join('');
+  }
+
+  // Real-time synchronization with safe defaults
+  function attachFirebaseListeners(data) {
+    data.forEach(student => {
+      const statsRef = ref(db, `stats/${student.id}`);
+      onValue(statsRef, (snapshot) => {
+        const stats = snapshot.val() || {};
+
+        const viewsCount = stats.views ?? 0;
+        const likesCount = stats.likes ?? 0;
+
+        const viewsElem = document.getElementById(`views-${student.id}`);
+        const likesElem = document.getElementById(`likes-${student.id}`);
+
+        if (viewsElem) viewsElem.innerText = viewsCount;
+        if (likesElem) likesElem.innerText = likesCount;
+      });
+    });
+  }
+
+  // Open PDF directly in a new tab & increment views ONCE per device/session
+  window.openPdfDirectly = function(studentId) {
+    const student = students.find(s => s.id === studentId);
+    if (!student) return;
+
+    const viewedKey = `viewed_${studentId}`;
+    if (!localStorage.getItem(viewedKey)) {
+      localStorage.setItem(viewedKey, "true");
+
+      const viewsRef = ref(db, `stats/${studentId}/views`);
+      runTransaction(viewsRef, (currentViews) => (currentViews || 0) + 1);
+    }
+
+    window.open(student.pdfUrl, '_blank');
+  };
+
+  // Like handler with single-like restriction
+  window.handleLike = function(event, studentId) {
+    event.stopPropagation();
+
+    const likedKey = `liked_${studentId}`;
+    if (localStorage.getItem(likedKey)) {
+      return; // Prevents multiple likes from the same user
+    }
+
+    localStorage.setItem(likedKey, "true");
+
+    // Update button appearance immediately
+    const button = document.getElementById(`like-btn-${studentId}`);
+    if (button) {
+      button.className = "flex items-center space-x-1.5 text-rose-500 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-200 transition-colors";
+    }
+
+    const likesRef = ref(db, `stats/${studentId}/likes`);
+    runTransaction(likesRef, (currentLikes) => (currentLikes || 0) + 1);
+
+    // Floating Heart Animation
+    const heart = document.createElement('i');
+    heart.classList.add('fa-solid', 'fa-heart', 'text-rose-500', 'floating-heart', 'text-xl');
+    heart.style.left = `${event.clientX - 10}px`;
+    heart.style.top = `${event.clientY - 20}px`;
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 800);
+  };
+
+  // Initialize application
+  document.addEventListener('DOMContentLoaded', loadSymposiumData);
+</script>
+</body>
+</html>

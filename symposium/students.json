@@ -1,0 +1,119 @@
+[
+  {
+    "id": "student_1",
+    "name": "Adam Juma Haruun",
+    "title": "Crop Disease Identification System Using Convolutional Neural Networks",
+    "department": "Information Technology",
+    "headshot": "headshots/adam_juma.jpg",
+    "architectureImage": "architecture/adam_juma.png",
+    "pdfUrl": "slides/adam_juma_cropdiseaseid.pdf"
+  },
+  {
+    "id": "student_2",
+    "name": "Agar Marial Riak",
+    "title": "Design and Implementation of Smart Malaria Diagnosis Assistant in Rural Clinics",
+    "department": "Computer Science",
+    "headshot": "headshots/agar_marial.jpg",
+    "architectureImage": "architecture/agar_marial.png",
+    "pdfUrl": "slides/agar_marial_SmartMalariaDiagnosis.pdf"
+  },
+  {
+    "id": "student_3",
+    "name": "Awut Deng Aquer",
+    "title": "Securing Harvest: Automated Detection and Classification of Rice Diseases Using DCNN",
+    "department": "Computer Science",
+    "headshot": "headshots/awut_deng.jpg",
+    "architectureImage": "architecture/awut_deng.png",
+    "pdfUrl": "slides/awut_deng_RiceDiseaseClassification.pdf"
+  },
+  {
+    "id": "student_4",
+    "name": "Ayath Agany",
+    "title": "Deep Learning- Based Automated for Real-Time Heart Attack (Myocardial Infraction) Screening",
+    "department": "Computer Science",
+    "headshot": "headshots/ayath_agany.jpg",
+    "architectureImage": "architecture/ayath_agany.png",
+    "pdfUrl": "slides/ayath_agany_HeartAttackDetection.pdf"
+  },
+  {
+    "id": "student_5",
+    "name": "Biet Puoric Matuong",
+    "title": "Smart Irrigation System",
+    "department": "Computer Science",
+    "headshot": "headshots/biet_pouric.jpg",
+    "architectureImage": "architecture/biet_pouric.png",
+    "pdfUrl": "slides/biet_pouric_SmartIrrigationSystem.pdf"
+  },
+  {
+    "id": "student_6",
+    "name": "Emmanuel Deng Mei",
+    "title": "Lightweight Deep Learning Architecture for Realtime Crop Pest Detection",
+    "department": "Computer Science",
+    "headshot": "headshots/emmanuel_deng.jpg",
+    "architectureImage": "architecture/emmanuel_deng.png",
+    "pdfUrl": "slides/emmanuel_deng_CropPestDetection.pdf"
+  },
+  {
+    "id": "student_7",
+    "name": "Kuot Chol Majok",
+    "title": "Automated Waste Classification for Recycling in Juba City Using Lightweight Deep Convolutional Neural Networks",
+    "department": "Information Technology",
+    "headshot": "headshots/kuot_chol.jpg",
+    "architectureImage": "architecture/kuot_chol.png",
+    "pdfUrl": "slides/kuot_chol_WasteClassification.pdf"
+  },
+  {
+    "id": "student_8",
+    "name": "Lioto Samuel Simon",
+    "title": "Design and Implementation of a Network Intrusion Detection System Using Machine Learning",
+    "department": "Information Technology",
+    "headshot": "headshots/lioto_samuel.jpg",
+    "architectureImage": "architecture/lioto_samuel.png",
+    "pdfUrl": "slides/lioto_samuel_NetworIntrusion.pdf"
+  },
+  {
+    "id": "student_9",
+    "name": "Malual Majur Dhaal & Benis Garang Wantok",
+    "title": "School of Computer Science and Information Technology E-Learning Platform",
+    "department": "Information Technology",
+    "headshot": "headshots/malual.jpg",
+    "architectureImage": "architecture/malual.png",
+    "pdfUrl": "slides/malual_elearning.pdf"
+  },
+  {
+    "id": "student_10",
+    "name": "Nesnea Khadi Silvano",
+    "title": "Deep Learning Decision Support System for Automated Diabetic Retinopathy Screening and Grading",
+    "department": "Computer Science",
+    "headshot": "headshots/nesnea.jpg",
+    "architectureImage": "architecture/nesnea.png",
+    "pdfUrl": "slides/nesnea_DaibeticRetinaScreening.pdf"
+  },
+  {
+    "id": "student_11",
+    "name": "Emmanuel Khamis Victor",
+    "title": "Spatiotemporal Abnormal Behavior Detection Model Using ResNet50-LSTM",
+    "department": "Computer Science",
+    "headshot": "headshots/emmanuel_khamis.jpg",
+    "architectureImage": "architecture/emmanuel_khamis.png",
+    "pdfUrl": "slides/emmanuel_khamis_ActionRecognition.pdf"
+  },
+  {
+    "id": "student_12",
+    "name": "Ngor Wek Wek",
+    "title": "Automatic Wildlife Monitoring System",
+    "department": "Information Technology",
+    "headshot": "headshots/ngor_wek.jpg",
+    "architectureImage": "architecture/ngor_wek.png",
+    "pdfUrl": "slides/ngor_wek_Wild Life Classification.pdf"
+  },
+  {
+    "id": "student_13",
+    "name": "Deng Deng Madut",
+    "title": "Automated Data Breach Notification System (A Case Study of Zain South Sudan)",
+    "department": "Information Technology",
+    "headshot": "headshots/deng_deng_madut.jpg",
+    "architectureImage": "architecture/deng_deng_madut.png",
+    "pdfUrl": "slides/deng_deng_madut_DataBreach.pdf"
+  }
+]
