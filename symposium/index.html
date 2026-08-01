@@ -29,114 +29,185 @@
       box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08), 0 8px 15px -6px rgba(0, 0, 0, 0.04);
       border-color: rgba(203, 213, 225, 0.9);
     }
+    /* Glow Effect for Top Project */
+    .top-project-glow {
+      border: 2px solid #f59e0b !important;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.35), 0 10px 25px -5px rgba(245, 158, 11, 0.2) !important;
+    }
   </style>
 </head>
 <body class="bg-[#f5f5f7] text-slate-900 min-h-screen font-sans selection:bg-blue-500 selection:text-white antialiased">
 
-<header class="pt-12 pb-12 px-6 text-center max-w-4xl mx-auto">
-  <div class="flex justify-center mb-6">
-    <img src="../images/uojai_logo_blue.png" alt="University of Juba Logo" class="h-20 md:h-24 w-auto object-contain">
+<header class="pt-10 pb-10 px-6 text-center max-w-4xl mx-auto">
+  <div class="flex justify-center mb-5">
+    <img src="../images/uojai_logo_blue.png" alt="University of Juba Logo" class="h-16 md:h-20 w-auto object-contain">
   </div>
 
   <span class="text-xs uppercase tracking-widest text-blue-600 font-semibold bg-blue-50/80 px-3 py-1.5 rounded-full border border-blue-100">
       Class of 2026 Academic Showcase
     </span>
-  <h1 class="text-4xl md:text-6xl font-extrabold mt-5 tracking-tight text-slate-900">
+  <h1 class="text-3xl md:text-5xl font-extrabold mt-4 tracking-tight text-slate-900">
     SCSIT Senior Thesis Symposium
   </h1>
-  <p class="text-slate-500 mt-4 text-lg md:text-xl font-normal max-w-2xl mx-auto leading-relaxed">
-    Explore groundbreaking research projects presented by graduating seniors in 1-slide pitches.
+  <p class="text-slate-500 mt-3 text-base md:text-lg font-normal max-w-2xl mx-auto leading-relaxed">
+    Click on any thesis card to view its full presentation slide, and don't forget to like your favorite projects!
   </p>
 </header>
 
-<main class="max-w-7xl mx-auto px-6 pb-24">
-  <div id="student-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<main class="max-w-[1600px] mx-auto px-6 pb-20">
+  <div id="student-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
   </div>
 </main>
-<!--<script type="module" src="firebase.js"></script>-->
+
 <script type="module">
-  // Import the database instance from firebase.js
-  // 1. Import db from your local firebase.js file
   import { db } from './firebase.js';
-
-  // 2. Import Firebase functions directly from the CDN
-  import { ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-  // DO NOT add "const db = ..." or "let db;" here!
+  import { ref, onValue, get, runTransaction } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
   let students = [];
 
-  // Load JSON metadata
+  // Load JSON metadata & fetch initial stats for popular sorting
+  // Load JSON metadata & fetch initial stats for star-based popular sorting
   async function loadSymposiumData() {
     try {
       const response = await fetch('./students.json');
       students = await response.json();
 
+      // Fetch snapshot once to sort by popularity on load
+      const statsSnapshot = await get(ref(db, 'stats'));
+      const statsData = statsSnapshot.val() || {};
+
+      // Sort students strictly by Star Ratings first
+      students.sort((a, b) => {
+        const aStats = statsData[a.id] || {};
+        const bStats = statsData[b.id] || {};
+
+        const aVotes = aStats.voteCount ?? 0;
+        const bVotes = bStats.voteCount ?? 0;
+
+        // Calculate average (0 if no votes)
+        const aAvg = aVotes > 0 ? (aStats.totalStars / aVotes) : 0;
+        const bAvg = bVotes > 0 ? (bStats.totalStars / bVotes) : 0;
+
+        // 1. Primary Sort: Highest Average Star Rating
+        if (bAvg !== aAvg) {
+          return bAvg - aAvg;
+        }
+
+        // 2. Secondary Sort: More total votes (higher confidence rating)
+        if (bVotes !== aVotes) {
+          return bVotes - aVotes;
+        }
+
+        // 3. Final Tie-Breaker: Total Views (only if stars and vote counts are identical)
+        const aViews = aStats.views ?? 0;
+        const bViews = bStats.views ?? 0;
+        return bViews - aViews;
+      });
+
       renderGrid(students);
       attachFirebaseListeners(students);
     } catch (error) {
-      console.error('Failed to load students.json:', error);
+      console.error('Failed to load symposium data:', error);
     }
   }
 
-  // Render cards with direct PDF click action and inline like button
+  // Render cards with smaller title and expanded description length
+  // Render cards with dynamic sorting, expanded description, and 5-star interactive rating
   function renderGrid(data) {
     const grid = document.getElementById('student-grid');
-    grid.innerHTML = data.map(student => {
-      const isLiked = localStorage.getItem(`liked_${student.id}`);
+
+    grid.innerHTML = data.map((student, index) => {
+      const isTopProject = index === 0;
 
       return `
-          <div onclick="openPdfDirectly('${student.id}')" class="apple-card group rounded-2xl p-6 cursor-pointer transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between">
-            <div>
-              <div class="flex flex-col items-center text-center mb-4">
-                <img src="${student.headshot}" alt="${student.name}" class="w-12 h-12 rounded-full object-cover border border-slate-200/80 shadow-sm mb-1.5">
-                <p class="text-xs font-medium text-slate-600 leading-tight">${student.name}</p>
-                <span class="text-[10px] font-medium text-slate-400 uppercase tracking-wide mt-0.5">${student.department}</span>
-              </div>
+      <div id="card-${student.id}" onclick="openPdfDirectly('${student.id}')" class="apple-card group relative rounded-2xl p-5 cursor-pointer transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between ${isTopProject ? 'top-project-glow bg-amber-50/20' : ''}">
 
-              <div class="relative overflow-hidden rounded-xl mb-4 aspect-video bg-white border border-slate-200 p-2 flex items-center justify-center shadow-inner">
-                <img src="${student.architectureImage}" alt="System Architecture Preview" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out">
-              </div>
-
-              <h2 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug text-center">${student.title}</h2>
-            </div>
-
-            <div class="flex items-center justify-between border-t border-slate-200/60 mt-5 pt-3 text-xs text-slate-400">
-              <span class="flex items-center space-x-1.5 font-medium">
-                <i class="fa-regular fa-eye text-slate-400"></i>
-                <span id="views-${student.id}" class="text-slate-600">0</span> views
-              </span>
-
-              <button id="like-btn-${student.id}" onclick="handleLike(event, '${student.id}')" class="flex items-center space-x-1.5 ${isLiked ? 'text-rose-500 bg-rose-50 border-rose-200' : 'text-slate-400 hover:text-rose-500 hover:bg-rose-50'} px-2.5 py-1 rounded-full border border-slate-200/80 transition-colors">
-                <i class="fa-solid fa-heart"></i>
-                <span id="likes-${student.id}">0</span>
-              </button>
-            </div>
+        ${isTopProject ? `
+          <div class="absolute -top-3 right-4 bg-amber-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-md flex items-center space-x-1 z-10">
+            <i class="fa-solid fa-crown text-[9px]"></i>
+            <span>Most Popular</span>
           </div>
-        `;
+        ` : ''}
+
+        <div>
+          <div class="flex flex-col items-center text-center mb-3">
+            <img src="${student.headshot}" alt="${student.name}" class="w-20 h-20 rounded-full object-cover border-2 border-slate-200/80 shadow-md mb-2">
+            <p class="text-sm font-semibold text-slate-700 leading-tight">${student.name}</p>
+            <span class="text-[10px] font-medium text-slate-400 uppercase tracking-wide mt-0.5">${student.department}</span>
+          </div>
+
+          <div class="relative overflow-hidden rounded-lg mb-3 aspect-video bg-white border border-slate-200 p-2 flex items-center justify-center shadow-inner">
+            <img src="${student.architectureImage}" alt="System Architecture Preview" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out">
+          </div>
+
+          <h2 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug text-center">${student.title}</h2>
+
+          <p class="text-xs italic text-slate-500 text-center mt-2 line-clamp-4 font-normal leading-relaxed">
+            "${student.description || 'No description provided.'}"
+          </p>
+        </div>
+
+        <div class="flex items-center justify-between border-t border-slate-200/60 mt-4 pt-2.5 text-xs text-slate-400">
+          <span class="flex items-center space-x-1.5 font-medium">
+            <i class="fa-regular fa-eye text-slate-400"></i>
+            <span id="views-${student.id}" class="text-slate-600">0</span> views
+          </span>
+
+          <div class="flex items-center space-x-1" onclick="event.stopPropagation()">
+            <div class="flex space-x-0.5 text-sm">
+              <i id="star-${student.id}-1" onclick="rateProject('${student.id}', 1)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
+              <i id="star-${student.id}-2" onclick="rateProject('${student.id}', 2)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
+              <i id="star-${student.id}-3" onclick="rateProject('${student.id}', 3)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
+              <i id="star-${student.id}-4" onclick="rateProject('${student.id}', 4)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
+              <i id="star-${student.id}-5" onclick="rateProject('${student.id}', 5)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
+            </div>
+            <span id="votes-${student.id}" class="text-slate-400 text-[11px] ml-1">(0)</span>
+          </div>
+        </div>
+      </div>
+    `;
     }).join('');
   }
 
-  // Real-time synchronization with safe defaults
+
+  // Real-time synchronization
   function attachFirebaseListeners(data) {
     data.forEach(student => {
       const statsRef = ref(db, `stats/${student.id}`);
       onValue(statsRef, (snapshot) => {
         const stats = snapshot.val() || {};
 
+        const totalStars = stats.totalStars ?? 0;
+        const voteCount = stats.voteCount ?? 0;
         const viewsCount = stats.views ?? 0;
-        const likesCount = stats.likes ?? 0;
 
+        // Calculate average score (0 to 5)
+        const avgScore = voteCount > 0 ? Math.round(totalStars / voteCount) : 0;
+
+        // Update views counter
         const viewsElem = document.getElementById(`views-${student.id}`);
-        const likesElem = document.getElementById(`likes-${student.id}`);
-
         if (viewsElem) viewsElem.innerText = viewsCount;
-        if (likesElem) likesElem.innerText = likesCount;
+
+        // Update total ratings count text
+        const votesElem = document.getElementById(`votes-${student.id}`);
+        if (votesElem) votesElem.innerText = `(${voteCount})`;
+
+        // Dynamically color the 5 stars gold vs gray based on avgScore
+        for (let starNumber = 1; starNumber <= 5; starNumber++) {
+          const starIcon = document.getElementById(`star-${student.id}-${starNumber}`);
+          if (starIcon) {
+            if (starNumber <= avgScore) {
+              starIcon.className = "fa-solid fa-star text-amber-400 cursor-pointer hover:scale-110 transition-transform";
+            } else {
+              starIcon.className = "fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform";
+            }
+          }
+        }
       });
     });
   }
 
-  // Open PDF directly in a new tab & increment views ONCE per device/session
+  // Open PDF directly in a new tab & increment views ONCE per session
   window.openPdfDirectly = function(studentId) {
     const student = students.find(s => s.id === studentId);
     if (!student) return;
@@ -158,12 +229,11 @@
 
     const likedKey = `liked_${studentId}`;
     if (localStorage.getItem(likedKey)) {
-      return; // Prevents multiple likes from the same user
+      return;
     }
 
     localStorage.setItem(likedKey, "true");
 
-    // Update button appearance immediately
     const button = document.getElementById(`like-btn-${studentId}`);
     if (button) {
       button.className = "flex items-center space-x-1.5 text-rose-500 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-200 transition-colors";
@@ -180,6 +250,66 @@
     document.body.appendChild(heart);
 
     setTimeout(() => heart.remove(), 800);
+  };
+
+  function showToast(studentId, message) {
+    const card = document.getElementById(`card-${studentId}`);
+    if (!card) return;
+
+    // Remove existing toast on this card if rapid clicking occurs
+    const existingToast = card.querySelector('.card-toast');
+    if (existingToast) existingToast.remove();
+
+    // Create elegant toast element
+    const toast = document.createElement('div');
+    toast.className = 'card-toast absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 backdrop-blur-md text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg border border-white/10 pointer-events-none transition-all duration-300 opacity-0 scale-95 z-20 flex items-center space-x-1.5';
+
+    toast.innerHTML = `
+    <i class="fa-solid fa-circle-info text-amber-400 text-xs"></i>
+    <span>${message}</span>
+  `;
+
+    card.appendChild(toast);
+
+    // Trigger smooth fade & scale in
+    requestAnimationFrame(() => {
+      toast.classList.remove('opacity-0', 'scale-95');
+      toast.classList.add('opacity-100', 'scale-100');
+    });
+
+    // Fade out and destroy after 1.8 seconds
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'scale-100');
+      toast.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => toast.remove(), 300);
+    }, 1800);
+  }
+
+  window.rateProject = function(studentId, ratingValue) {
+    const ratedKey = `rated_${studentId}`;
+
+    // Anti-spam check: Show elegant inline toast instead of alert()
+    if (localStorage.getItem(ratedKey)) {
+      showToast(studentId, "You already rated!");
+      return;
+    }
+
+    localStorage.setItem(ratedKey, ratingValue);
+
+    const statsRef = ref(db, `stats/${studentId}`);
+    runTransaction(statsRef, (currentData) => {
+      if (!currentData) {
+        return { totalStars: ratingValue, voteCount: 1, views: 0 };
+      }
+      return {
+        ...currentData,
+        totalStars: (currentData.totalStars || 0) + ratingValue,
+        voteCount: (currentData.voteCount || 0) + 1
+      };
+    });
+
+    // Optional feedback for successful rating
+    showToast(studentId, "Thanks for rating!");
   };
 
   // Initialize application
