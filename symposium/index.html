@@ -6,7 +6,6 @@
   <title>SCSIT Senior Thesis Symposium</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
@@ -44,13 +43,13 @@
   </div>
 
   <span class="text-xs uppercase tracking-widest text-blue-600 font-semibold bg-blue-50/80 px-3 py-1.5 rounded-full border border-blue-100">
-      Class of 2026 Academic Showcase
-    </span>
+    Class of 2026 Academic Showcase
+  </span>
   <h1 class="text-3xl md:text-5xl font-extrabold mt-4 tracking-tight text-slate-900">
     SCSIT Senior Thesis Symposium
   </h1>
   <p class="text-slate-500 mt-3 text-base md:text-lg font-normal max-w-2xl mx-auto leading-relaxed">
-    Click on any thesis card to view its full presentation slide, and don't forget to like your favorite projects!
+    Click on any thesis card to view its full presentation slide, and don't forget to rate your favorite projects!
   </p>
 </header>
 
@@ -61,63 +60,75 @@
 
 <script type="module">
   import { db } from './firebase.js';
-  import { ref, onValue, get, runTransaction } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+  import { ref, onValue, runTransaction } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
   let students = [];
 
-  // Load JSON metadata & fetch initial stats for popular sorting
-  // Load JSON metadata & fetch initial stats for star-based popular sorting
+  // 1. Load JSON metadata & initialize live Firebase listener
   async function loadSymposiumData() {
     try {
       const response = await fetch('./students.json');
       students = await response.json();
 
-      // Fetch snapshot once to sort by popularity on load
-      const statsSnapshot = await get(ref(db, 'stats'));
-      const statsData = statsSnapshot.val() || {};
-
-      // Sort students strictly by Star Ratings first
-      students.sort((a, b) => {
-        const aStats = statsData[a.id] || {};
-        const bStats = statsData[b.id] || {};
-
-        const aVotes = aStats.voteCount ?? 0;
-        const bVotes = bStats.voteCount ?? 0;
-
-        // Calculate average (0 if no votes)
-        const aAvg = aVotes > 0 ? (aStats.totalStars / aVotes) : 0;
-        const bAvg = bVotes > 0 ? (bStats.totalStars / bVotes) : 0;
-
-        // 1. Primary Sort: Highest Average Star Rating
-        if (bAvg !== aAvg) {
-          return bAvg - aAvg;
-        }
-
-        // 2. Secondary Sort: More total votes (higher confidence rating)
-        if (bVotes !== aVotes) {
-          return bVotes - aVotes;
-        }
-
-        // 3. Final Tie-Breaker: Total Views (only if stars and vote counts are identical)
-        const aViews = aStats.views ?? 0;
-        const bViews = bStats.views ?? 0;
-        return bViews - aViews;
-      });
-
+      // Render initial grid right away while database connects
       renderGrid(students);
-      attachFirebaseListeners(students);
+
+      // Listen to real-time changes across all project stats
+      attachFirebaseRealtimeListener();
     } catch (error) {
       console.error('Failed to load symposium data:', error);
     }
   }
 
-  // Render cards with smaller title and expanded description length
-  // Render cards with dynamic sorting, expanded description, and 5-star interactive rating
+  // 2. Real-time Firebase Listener (Triggers re-sorting & re-rendering on ANY vote/view)
+  function attachFirebaseRealtimeListener() {
+    const statsRef = ref(db, 'stats');
+
+    onValue(statsRef, (snapshot) => {
+      const statsData = snapshot.val() || {};
+
+      // 1. Process stats and calculate average score per student
+      students.forEach(student => {
+        const s = statsData[student.id] || {};
+
+        student.totalStars = Number(s.totalStars || 0);
+        student.voteCount = Number(s.voteCount || 0);
+        student.views = Number(s.views || 0);
+
+        // Average score (0.0 to 5.0)
+        student.avgScore = student.voteCount > 0 ? (student.totalStars / student.voteCount) : 0;
+      });
+
+      // 2. Sort by Average Score (with Vote Count tie-breaker)
+      students.sort((a, b) => {
+        // Primary: Highest Average Rating (e.g. 4.8 beats 4.2)
+        if (b.avgScore !== a.avgScore) {
+          return b.avgScore - a.avgScore;
+        }
+
+        // Secondary Tie-Breaker: More Total Votes (Higher confidence)
+        if (b.voteCount !== a.voteCount) {
+          return b.voteCount - a.voteCount;
+        }
+
+        // Tertiary Tie-Breaker: Total Views
+        return b.views - a.views;
+      });
+
+      // 3. Render grid with updated order
+      renderGrid(students);
+    });
+  }
+
+  // 3. Render Cards
   function renderGrid(data) {
     const grid = document.getElementById('student-grid');
+    if (!grid) return;
 
     grid.innerHTML = data.map((student, index) => {
-      const isTopProject = index === 0;
+      // Only highlight as Most Popular if the project has received votes
+      const isTopProject = index === 0 && student.voteCount > 0;
+      const roundedAvg = Math.round(student.avgScore || 0);
 
       return `
       <div id="card-${student.id}" onclick="openPdfDirectly('${student.id}')" class="apple-card group relative rounded-2xl p-5 cursor-pointer transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between ${isTopProject ? 'top-project-glow bg-amber-50/20' : ''}">
@@ -150,18 +161,20 @@
         <div class="flex items-center justify-between border-t border-slate-200/60 mt-4 pt-2.5 text-xs text-slate-400">
           <span class="flex items-center space-x-1.5 font-medium">
             <i class="fa-regular fa-eye text-slate-400"></i>
-            <span id="views-${student.id}" class="text-slate-600">0</span> views
+            <span class="text-slate-600">${student.views || 0}</span> views
           </span>
 
-          <div class="flex items-center space-x-1" onclick="event.stopPropagation()">
+          <div class="flex items-center space-x-1.5" onclick="event.stopPropagation()">
+            <span class="font-bold text-slate-700 text-xs">${student.avgScore > 0 ? student.avgScore.toFixed(1) : '0.0'}</span>
+
             <div class="flex space-x-0.5 text-sm">
-              <i id="star-${student.id}-1" onclick="rateProject('${student.id}', 1)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
-              <i id="star-${student.id}-2" onclick="rateProject('${student.id}', 2)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
-              <i id="star-${student.id}-3" onclick="rateProject('${student.id}', 3)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
-              <i id="star-${student.id}-4" onclick="rateProject('${student.id}', 4)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
-              <i id="star-${student.id}-5" onclick="rateProject('${student.id}', 5)" class="fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform"></i>
+              ${[1, 2, 3, 4, 5].map(starNum => `
+                <i onclick="rateProject('${student.id}', ${starNum})"
+                   class="fa-solid fa-star ${starNum <= roundedAvg ? 'text-amber-400' : 'text-slate-300'} cursor-pointer hover:scale-110 transition-transform"></i>
+              `).join('')}
             </div>
-            <span id="votes-${student.id}" class="text-slate-400 text-[11px] ml-1">(0)</span>
+
+            <span class="text-slate-400 text-[11px]">(${student.voteCount || 0})</span>
           </div>
         </div>
       </div>
@@ -169,45 +182,7 @@
     }).join('');
   }
 
-
-  // Real-time synchronization
-  function attachFirebaseListeners(data) {
-    data.forEach(student => {
-      const statsRef = ref(db, `stats/${student.id}`);
-      onValue(statsRef, (snapshot) => {
-        const stats = snapshot.val() || {};
-
-        const totalStars = stats.totalStars ?? 0;
-        const voteCount = stats.voteCount ?? 0;
-        const viewsCount = stats.views ?? 0;
-
-        // Calculate average score (0 to 5)
-        const avgScore = voteCount > 0 ? Math.round(totalStars / voteCount) : 0;
-
-        // Update views counter
-        const viewsElem = document.getElementById(`views-${student.id}`);
-        if (viewsElem) viewsElem.innerText = viewsCount;
-
-        // Update total ratings count text
-        const votesElem = document.getElementById(`votes-${student.id}`);
-        if (votesElem) votesElem.innerText = `(${voteCount})`;
-
-        // Dynamically color the 5 stars gold vs gray based on avgScore
-        for (let starNumber = 1; starNumber <= 5; starNumber++) {
-          const starIcon = document.getElementById(`star-${student.id}-${starNumber}`);
-          if (starIcon) {
-            if (starNumber <= avgScore) {
-              starIcon.className = "fa-solid fa-star text-amber-400 cursor-pointer hover:scale-110 transition-transform";
-            } else {
-              starIcon.className = "fa-solid fa-star text-slate-300 cursor-pointer hover:scale-110 transition-transform";
-            }
-          }
-        }
-      });
-    });
-  }
-
-  // Open PDF directly in a new tab & increment views ONCE per session
+  // 4. PDF Click Handler
   window.openPdfDirectly = function(studentId) {
     const student = students.find(s => s.id === studentId);
     if (!student) return;
@@ -223,74 +198,12 @@
     window.open(student.pdfUrl, '_blank');
   };
 
-  // Like handler with single-like restriction
-  window.handleLike = function(event, studentId) {
-    event.stopPropagation();
-
-    const likedKey = `liked_${studentId}`;
-    if (localStorage.getItem(likedKey)) {
-      return;
-    }
-
-    localStorage.setItem(likedKey, "true");
-
-    const button = document.getElementById(`like-btn-${studentId}`);
-    if (button) {
-      button.className = "flex items-center space-x-1.5 text-rose-500 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-200 transition-colors";
-    }
-
-    const likesRef = ref(db, `stats/${studentId}/likes`);
-    runTransaction(likesRef, (currentLikes) => (currentLikes || 0) + 1);
-
-    // Floating Heart Animation
-    const heart = document.createElement('i');
-    heart.classList.add('fa-solid', 'fa-heart', 'text-rose-500', 'floating-heart', 'text-xl');
-    heart.style.left = `${event.clientX - 10}px`;
-    heart.style.top = `${event.clientY - 20}px`;
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 800);
-  };
-
-  function showToast(studentId, message) {
-    const card = document.getElementById(`card-${studentId}`);
-    if (!card) return;
-
-    // Remove existing toast on this card if rapid clicking occurs
-    const existingToast = card.querySelector('.card-toast');
-    if (existingToast) existingToast.remove();
-
-    // Create elegant toast element
-    const toast = document.createElement('div');
-    toast.className = 'card-toast absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 backdrop-blur-md text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg border border-white/10 pointer-events-none transition-all duration-300 opacity-0 scale-95 z-20 flex items-center space-x-1.5';
-
-    toast.innerHTML = `
-    <i class="fa-solid fa-circle-info text-amber-400 text-xs"></i>
-    <span>${message}</span>
-  `;
-
-    card.appendChild(toast);
-
-    // Trigger smooth fade & scale in
-    requestAnimationFrame(() => {
-      toast.classList.remove('opacity-0', 'scale-95');
-      toast.classList.add('opacity-100', 'scale-100');
-    });
-
-    // Fade out and destroy after 1.8 seconds
-    setTimeout(() => {
-      toast.classList.remove('opacity-100', 'scale-100');
-      toast.classList.add('opacity-0', 'scale-95');
-      setTimeout(() => toast.remove(), 300);
-    }, 1800);
-  }
-
+  // 5. Star Rating Handler
   window.rateProject = function(studentId, ratingValue) {
     const ratedKey = `rated_${studentId}`;
 
-    // Anti-spam check: Show elegant inline toast instead of alert()
     if (localStorage.getItem(ratedKey)) {
-      showToast(studentId, "You already rated!");
+      showToast(studentId, "Already rated!");
       return;
     }
 
@@ -303,16 +216,45 @@
       }
       return {
         ...currentData,
-        totalStars: (currentData.totalStars || 0) + ratingValue,
-        voteCount: (currentData.voteCount || 0) + 1
+        totalStars: (Number(currentData.totalStars) || 0) + ratingValue,
+        voteCount: (Number(currentData.voteCount) || 0) + 1,
+        views: Number(currentData.views) || 0
       };
     });
 
-    // Optional feedback for successful rating
     showToast(studentId, "Thanks for rating!");
   };
 
-  // Initialize application
+  // 6. Toast Notification Helper
+  function showToast(studentId, message) {
+    const card = document.getElementById(`card-${studentId}`);
+    if (!card) return;
+
+    const existingToast = card.querySelector('.card-toast');
+    if (existingToast) existingToast.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'card-toast absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-slate-900/90 backdrop-blur-md text-white text-xs font-medium px-4 py-2 rounded-full shadow-lg border border-white/10 pointer-events-none transition-all duration-300 opacity-0 scale-95 z-20 flex items-center space-x-1.5';
+
+    toast.innerHTML = `
+      <i class="fa-solid fa-circle-info text-amber-400 text-xs"></i>
+      <span>${message}</span>
+    `;
+
+    card.appendChild(toast);
+
+    requestAnimationFrame(() => {
+      toast.classList.remove('opacity-0', 'scale-95');
+      toast.classList.add('opacity-100', 'scale-100');
+    });
+
+    setTimeout(() => {
+      toast.classList.remove('opacity-100', 'scale-100');
+      toast.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => toast.remove(), 300);
+    }, 1800);
+  }
+
   document.addEventListener('DOMContentLoaded', loadSymposiumData);
 </script>
 </body>
