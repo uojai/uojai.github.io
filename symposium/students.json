@@ -80,16 +80,6 @@
     "pdfUrl": "slides/lioto_samuel_NetworIntrusion.pdf"
   },
   {
-    "id": "student_9",
-    "name": "Malual Majur Dhaal & Benis Garang Wantok",
-    "title": "School of Computer Science and Information Technology E-Learning Platform",
-    "description": "The study investigated the use of E-learning platforms and student satisfaction in the School\nof Computer Science and Information Technology at the University of Juba. It aims to examine\nhow E-learning components peroxided by internet security, internet efficiency, and internet\nreliability affect student satisfaction within the institution. The study adopted a survey research\ndesign, and a simple random sampling method was used to select students who are familiar\nwith E-learning platforms in the School of Computer Science and Information Technology.\nThe data collected for the study comprised primary data obtained through the administration\nof questionnaires. A multiple regression method was employed for data analysis. The findings\nreveal that the coefficient of internet reliability is significant and positive, indicating that\ninternet reliability has a strong impact on student satisfaction with E-learning platforms. This\nimplies that reliable internet access is a key determinant of students’ satisfaction in E-learning\nenvironments. The study concludes that internet reliability, internet efficiency, and internet\nsecurity all have significant impacts on student satisfaction with E-learning platforms in the\nSchool of Computer Science and Information Technology at the University of Juba. However,\nstudents place greater emphasis on internet reliability particularly in terms of accessing\nlearning materials and completing academic tasks than on security or efficiency.",
-    "department": "Information Technology",
-    "headshot": "headshots/malual.jpg",
-    "architectureImage": "architecture/malual.png",
-    "pdfUrl": "slides/malual_elearning.pdf"
-  },
-  {
     "id": "student_10",
     "name": "Nesnea Khadi Silvano",
     "title": "Deep Learning Decision Support System for Automated Diabetic Retinopathy Screening and Grading",
@@ -100,16 +90,6 @@
     "pdfUrl": "slides/nesnea_DaibeticRetinaScreening.pdf"
   },
   {
-    "id": "student_11",
-    "name": "Emmanuel Khamis Victor",
-    "title": "Spatiotemporal Abnormal Behavior Detection Model Using ResNet50-LSTM",
-    "description": "The rapid expansion of surveillance systems in public and private environments has created a strong demand for intelligent technologies capable of automatically detecting abnormal or violent activities. Although modern surveillance cameras capture large volumes of video data, accurately interpreting human behavior in complex real-world environments remains a significant challenge due to factors such as illumination variations, motion blur, occlusion, and crowded scenes. Traditional frame-based detection methods often fail to capture temporal motion patterns and therefore generate false alarms when harmless activities such as running or sudden crowd movement occur. To address these limitations, this research proposes a deep learning model for abnormal behavior detection  based on a hybrid deep learning architecture that combines ResNet50 and Long Short-Term Memory (LSTM) networks for spatiotemporal analysis. The CNN component utilizes a pre-trained ResNet50 model to extract high-level spatial features from individual video frames, while the LSTM network captures temporal dependencies across frame sequences to identify patterns associated with violent behavior. The model was trained and evaluated using the RWF-2000 dataset, a real-world surveillance dataset containing videos categorized as violent and non-violent activities. Experimental results demonstrate that the proposed ResNet50–LSTM architecture effectively distinguishes violent interactions from normal activities by analyzing both spatial appearance and temporal motion patterns. The performance of the model was evaluated using accuracy, precision, recall, and F1-score, demonstrating strong classification capability and reduced false alarm rates compared to traditional frame-level approaches. On the RWF-2000 dataset [7], the model achieved a test accuracy of 72.5%. The model performs binary classification, where “Non-Fight” is mapped to Class 1 and “Fight” is mapped to Class 0. These results highlight the effectiveness of spatiotemporal deep learning techniques for automated surveillance, showing potential to improve the reliability of abnormal behavior detection in real-world environments. ",
-    "department": "Computer Science",
-    "headshot": "headshots/emmanuel_khamis.jpg",
-    "architectureImage": "architecture/emmanuel_khamis.png",
-    "pdfUrl": "slides/emmanuel_khamis_ActionRecognition.pdf"
-  },
-  {
     "id": "student_12",
     "name": "Ngor Wek Wek",
     "title": "Automatic Wildlife Monitoring System",
@@ -118,15 +98,5 @@
     "headshot": "headshots/ngor_wek.jpg",
     "architectureImage": "architecture/ngor_wek.png",
     "pdfUrl": "slides/ngor_wek_Wild Life Classification.pdf"
-  },
-  {
-    "id": "student_13",
-    "name": "Deng Deng Madut",
-    "title": "Automated Data Breach Notification System (A Case Study of Zain South Sudan)",
-    "description": "This research presents the design and implementation of an Automated Data Breach Notification System (ADBNS), a web-based cybersecurity solution developed to reduce the notification delays following data breaches in South Sudan. Traditional notification methods are manual and inefficient, often exposing users to further risks. The proposed system utilizes a three-tier architecture consisting of a Bootstrap-based frontend, a PHP backend, and a MySQL database. It enables administrators to upload breach logs and automatically notify affected users via email using SMTP protocols. The system was deployed on the Infinity Free cloud platform using the InnoDB storage engine to ensure relational integrity. Results from threat simulations demonstrate that the ADBNS can identify a breach and generate an audit record in the notifications table in less than 3 seconds. The study concludes that such automated frameworks are essential for local institutions to comply with emerging digital privacy standards and to protect citizens from secondary identity theft. This system addresses the critical delay in notifying users after a data compromise. The Automated Data Breach Notification System was designed to bridge this gap using a web-based architecture. Testing revealed a 100% accuracy rate in matching records with a processing time of less than 4 seconds for mid-sized datasets. This study concludes that automation is essential for modern cybersecurity compliance and user protection.",
-    "department": "Information Technology",
-    "headshot": "headshots/deng_deng_madut.jpg",
-    "architectureImage": "architecture/deng_deng_madut.png",
-    "pdfUrl": "slides/deng_deng_madut_DataBreach.pdf"
   }
 ]
