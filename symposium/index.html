@@ -42,14 +42,14 @@
     <img src="../images/uojai_logo_blue.png" alt="University of Juba Logo" class="h-16 md:h-20 w-auto object-contain">
   </div>
 
-  <span class="text-xs uppercase tracking-widest text-blue-600 font-semibold bg-blue-50/80 px-3 py-1.5 rounded-full border border-blue-100">
-    Class of 2026 Academic Showcase
+  <span class="text-xs uppercase tracking-widest text-slate-600 font-semibold bg-slate-200/80 px-3 py-1.5 rounded-full border border-slate-300">
+    Voting Closed • Final Results
   </span>
   <h1 class="text-3xl md:text-5xl font-extrabold mt-4 tracking-tight text-slate-900">
     SCSIT Senior Thesis Symposium
   </h1>
   <p class="text-slate-500 mt-3 text-base md:text-lg font-normal max-w-2xl mx-auto leading-relaxed">
-    Click on any thesis card to view its full presentation slide, and don't forget to rate your favorite projects!
+    Click on any thesis card to view its full presentation slide. Voting has officially concluded.
   </p>
 </header>
 
@@ -80,14 +80,14 @@
     }
   }
 
-  // 2. Real-time Firebase Listener (Triggers re-sorting & re-rendering on ANY vote/view)
+  // 2. Real-time Firebase Listener
   function attachFirebaseRealtimeListener() {
     const statsRef = ref(db, 'stats');
 
     onValue(statsRef, (snapshot) => {
       const statsData = snapshot.val() || {};
 
-      // 1. Process stats and calculate average score per student
+      // Process stats and calculate average score per student
       students.forEach(student => {
         const s = statsData[student.id] || {};
 
@@ -99,23 +99,18 @@
         student.avgScore = student.voteCount > 0 ? (student.totalStars / student.voteCount) : 0;
       });
 
-      // 2. Sort by Average Score (with Vote Count tie-breaker)
+      // Sort by Average Score (with Vote Count tie-breaker)
       students.sort((a, b) => {
-        // Primary: Highest Average Rating (e.g. 4.8 beats 4.2)
         if (b.avgScore !== a.avgScore) {
           return b.avgScore - a.avgScore;
         }
-
-        // Secondary Tie-Breaker: More Total Votes (Higher confidence)
         if (b.voteCount !== a.voteCount) {
           return b.voteCount - a.voteCount;
         }
-
-        // Tertiary Tie-Breaker: Total Views
         return b.views - a.views;
       });
 
-      // 3. Render grid with updated order
+      // Render grid with updated order and views
       renderGrid(students);
     });
   }
@@ -126,7 +121,6 @@
     if (!grid) return;
 
     grid.innerHTML = data.map((student, index) => {
-      // Only highlight as Most Popular if the project has received votes
       const isTopProject = index === 0 && student.voteCount > 0;
       const roundedAvg = Math.round(student.avgScore || 0);
 
@@ -164,13 +158,12 @@
             <span class="text-slate-600">${student.views || 0}</span> views
           </span>
 
-          <div class="flex items-center space-x-1.5" onclick="event.stopPropagation()">
+          <div class="flex items-center space-x-1.5" onclick="event.stopPropagation(); rateProject('${student.id}');">
             <span class="font-bold text-slate-700 text-xs">${student.avgScore > 0 ? student.avgScore.toFixed(1) : '0.0'}</span>
 
             <div class="flex space-x-0.5 text-sm">
               ${[1, 2, 3, 4, 5].map(starNum => `
-                <i onclick="rateProject('${student.id}', ${starNum})"
-                   class="fa-solid fa-star ${starNum <= roundedAvg ? 'text-amber-400' : 'text-slate-300'} cursor-pointer hover:scale-110 transition-transform"></i>
+                <i class="fa-solid fa-star ${starNum <= roundedAvg ? 'text-amber-400' : 'text-slate-300'} cursor-default"></i>
               `).join('')}
             </div>
 
@@ -182,7 +175,7 @@
     }).join('');
   }
 
-  // 4. PDF Click Handler
+  // 4. PDF Click Handler (Maintained)
   window.openPdfDirectly = function(studentId) {
     const student = students.find(s => s.id === studentId);
     if (!student) return;
@@ -198,31 +191,9 @@
     window.open(student.pdfUrl, '_blank');
   };
 
-  // 5. Star Rating Handler
-  window.rateProject = function(studentId, ratingValue) {
-    const ratedKey = `rated_${studentId}`;
-
-    if (localStorage.getItem(ratedKey)) {
-      showToast(studentId, "Already rated!");
-      return;
-    }
-
-    localStorage.setItem(ratedKey, ratingValue);
-
-    const statsRef = ref(db, `stats/${studentId}`);
-    runTransaction(statsRef, (currentData) => {
-      if (!currentData) {
-        return { totalStars: ratingValue, voteCount: 1, views: 0 };
-      }
-      return {
-        ...currentData,
-        totalStars: (Number(currentData.totalStars) || 0) + ratingValue,
-        voteCount: (Number(currentData.voteCount) || 0) + 1,
-        views: Number(currentData.views) || 0
-      };
-    });
-
-    showToast(studentId, "Thanks for rating!");
+  // 5. Disabled Star Rating Handler
+  window.rateProject = function(studentId) {
+    showToast(studentId, "Voting is now closed!");
   };
 
   // 6. Toast Notification Helper
