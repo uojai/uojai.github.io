@@ -1,1 +1,2613 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI Trailblazers Gallery - University of Juba</title><link rel="stylesheet" href="../../css/output.css?v=1"></head><body class="font-architech"><div class="trailblazers-header"><div class="logo-placeholder"><a href="../../" target="_self"><img src="../../images/uojai_logo_blue.png" alt="University of Juba AI"></a></div><h1 class="text-4xl">AI Trailblazers</h1><p>Celebrating the innovative minds shaping the future of Artificial Intelligence at the University of Juba and South Sudan</p><h3>(Contact:  Dr. Felix Gonda, Associate Professor of Computer Science.)</h3></div><div class="menu"><a href="../2024" target="_self">Class of 2024</a><a href="../2025" target="_self">Class of 2025</a><a href="../2026" target="_self">Class of 2026</a><a class="menu-selected" href="#" target="_self">Class of 2027</a><a href="../2028" target="_self">Class of 2028</a></div><div class="gallery"><div class="student-card computer-science"><img class="student-photo" src="../../images/2027/Deng Ador Thon_Thumb.jpg" alt="Deng Ador Thon"><div class="student-info"><h3>Deng Ador Thon</h3><p>Computer Science</p></div></div><div class="student-card information-technology"><img class="student-photo" src="../../images/2027/Eliza Yier Michael_Thumb.jpg" alt="Eliza Yier Michael"><div class="student-info"><h3>Eliza Yier Michael</h3><p>Information Technology</p></div></div><div class="student-card cyber-security"><img class="student-photo" src="../../images/2027/Emmanuel Soro Joseph_Thumb.jpg" alt="Emmanuel Soro Joseph"><div class="student-info"><h3>Emmanuel Soro Joseph</h3><p>Cyber Security</p></div></div><div class="student-card information-technology"><img class="student-photo" src="../../images/2027/Garang Joseph Thon_Thumb.jpg" alt="Garang Joseph Thon"><div class="student-info"><h3>Garang Joseph Thon</h3><p>Information Technology</p></div></div><div class="student-card information-technology"><img class="student-photo" src="../../images/2027/John Madut_Thumb.jpg" alt="John Madut"><div class="student-info"><h3>John Madut</h3><p>Information Technology</p></div></div><div class="student-card information-technology"><img class="student-photo" src="../../images/2027/Majok Makuach Yol_Thumb.jpg" alt="Majok Makuach Yol"><div class="student-info"><h3>Majok Makuach Yol</h3><p>Information Technology</p></div></div><div class="student-card computer-science"><img class="student-photo" src="../../images/2027/Paul Manhom Kocdong_Thumb.jpg" alt="Paul Manhom Kocdong"><div class="student-info"><h3>Paul Manhom Kocdong</h3><p>Computer Science</p></div></div><div class="student-card cyber-security"><img class="student-photo" src="../../images/2027/Salome Jande Justin_Thumb.jpg" alt="Salome Jande Justin"><div class="student-info"><h3>Salome Jande Justin</h3><p>Cyber Security</p></div></div><div class="student-card information-technology"><img class="student-photo" src="../../images/2027/Sarah Angeth Arou_Thumb.jpg" alt="Sarah Angeth Arou"><div class="student-info"><h3>Sarah Angeth Arou</h3><p>Information Technology</p></div></div><div class="student-card computer-science"><img class="student-photo" src="../../images/2027/Thiak Ayuen_Thumb.jpg" alt="Thiak Ayuen"><div class="student-info"><h3>Thiak Ayuen</h3><p>Computer Science</p></div></div><div class="student-card cyber-security"><img class="student-photo" src="../../images/2027/Wani Michael_Thumb.jpg" alt="Wani Michael"><div class="student-info"><h3>Wani Michael</h3><p>Cyber Security</p></div></div></div><script src="../../js/script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Trailblazers</title>
+    <!-- Import Google Font: Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            /* Subtle Pastel Accents */
+            --accent-cs: #6ee7b7;   /* Soft Mint Green */
+            --accent-it: #fdba74;   /* Soft Peach Orange */
+            --accent-cys: #93c5fd;  /* Soft Sky Blue */
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Seamless Header matching gallery background, no border */
+        .trailblazers-header {
+            background-color: var(--bg-color);
+            padding: 50px 20px 20px 20px;
+            text-align: center;
+        }
+        .logo-placeholder img {
+            max-height: 65px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+        .logo-placeholder img:hover {
+            transform: scale(1.05);
+        }
+        .text-4xl {
+            font-size: 2.75rem;
+            font-weight: 900;
+            color: var(--text-main);
+            margin: 0 0 10px 0;
+            letter-spacing: -0.025em;
+        }
+        .trailblazers-header p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto 12px auto;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+        .trailblazers-header h3 {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Filter Buttons with Pastel Accent Borders */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 30px 20px 10px 20px;
+        }
+        .filter-btn {
+            font-family: 'Nunito', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-muted);
+            border: 2px solid #cbd5e1;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* Department Accent Borders for Buttons */
+        .filter-btn[data-filter="cs"] { border-color: var(--accent-cs); }
+        .filter-btn[data-filter="it"] { border-color: var(--accent-it); }
+        .filter-btn[data-filter="cys"] { border-color: var(--accent-cys); }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            color: var(--text-main);
+        }
+        .filter-btn.active {
+            color: var(--text-main);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+        }
+        .filter-btn.active[data-filter="all"] { background-color: #e2e8f0; border-color: #cbd5e1; }
+        .filter-btn.active[data-filter="cs"] { background-color: var(--accent-cs); border-color: var(--accent-cs); }
+        .filter-btn.active[data-filter="it"] { background-color: var(--accent-it); border-color: var(--accent-it); }
+        .filter-btn.active[data-filter="cys"] { background-color: var(--accent-cys); border-color: var(--accent-cys); }
+
+        /* Full-width Fluid Layout */
+        .main-content {
+            width: 100%;
+            margin: 20px 0 60px 0;
+            padding: 0 30px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        /* Modern Card Styling with 2px Pastel Accent & Wow-Factor Hover */
+        .card {
+            background: var(--card-bg);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 28px -6px rgba(15, 23, 42, 0.1);
+        }
+
+        /* 2px Pastel Department Accent Bottom Borders */
+        .card.cs { border-bottom: 2px solid var(--accent-cs); }
+        .card.it { border-bottom: 2px solid var(--accent-it); }
+        .card.cys { border-bottom: 2px solid var(--accent-cys); }
+        .card.general { border-bottom: 2px solid #cbd5e1; }
+
+        .image-wrapper {
+            width: 100%;
+            height: 190px;
+            overflow: hidden;
+            background-color: #f1f5f9;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover img {
+            transform: scale(1.08);
+        }
+
+        .card-content {
+            padding: 12px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--card-bg);
+        }
+
+        /* Updated Requested Font Settings */
+        .card h3 {
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin: 0 0 4px 0;
+            color: var(--text-main);
+        }
+        .card p {
+            font-size: 0.60rem;
+            color: var(--text-muted);
+            margin: 0;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-color);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+<div class="trailblazers-header">
+    <div class="logo-placeholder">
+        <a href="../../" target="_self"><img src="../../images/uojai_logo_blue.png" alt="University of Juba AI"></a>
+    </div>
+    <h1 class="text-4xl">AI Trailblazers</h1>
+    <p>Celebrating the innovative minds shaping the future of Artificial Intelligence at the University of Juba and South Sudan</p>
+    <h3>(Contact:  Dr. Felix Gonda, Associate Professor of Computer Science.)</h3>
+</div>
+
+<!-- Interactive Filter Buttons with Accent Borders -->
+<div class="filter-container">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="cs">Computer Science</button>
+    <button class="filter-btn" data-filter="it">Information Tech</button>
+    <button class="filter-btn" data-filter="cys">Cyber Security</button>
+</div>
+
+<div class="main-content">
+    <div class="grid">
+        
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Perino Michael Ruben Lodu.jpg" alt="Perino Michael Ruben Lodu" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Perino Michael Ruben Lodu</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Marial Abur Bol.jpg" alt="Deng Marial Abur Bol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Marial Abur Bol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Yhuot Peter Gabriel.jpg" alt="Yhuot Peter Gabriel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Yhuot Peter Gabriel</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Emmanuel Soro Joseph Elnai.jpg" alt="Emmanuel Soro Joseph Elnai" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Emmanuel Soro Joseph Elnai</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Garang Gabriel Kongor Deng.jpg" alt="Garang Gabriel Kongor Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Garang Gabriel Kongor Deng</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Apio Jacob Jenaro.jpg" alt="Apio Jacob Jenaro" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Apio Jacob Jenaro</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Garang Wek Akol Ateny.jpg" alt="Garang Wek Akol Ateny" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Garang Wek Akol Ateny</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Justin Mani Faustino.jpg" alt="Justin Mani Faustino" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Justin Mani Faustino</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Mayom Deng Leek.jpg" alt="Deng Mayom Deng Leek" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Mayom Deng Leek</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Nicole Nyanlieth Majak.jpg" alt="Nicole Nyanlieth Majak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Nicole Nyanlieth Majak</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Meen Malual Agok.jpg" alt="Meen Malual Agok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Meen Malual Agok</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Malual Kiir Ayuel.jpg" alt="Malual Kiir Ayuel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Malual Kiir Ayuel</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Arop Kieu Ajou Ajak.jpg" alt="Arop Kieu Ajou Ajak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Arop Kieu Ajou Ajak</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Wal Mel Wal Achien.jpg" alt="Wal Mel Wal Achien" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Wal Mel Wal Achien</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Duku Paul Tisa.jpg" alt="Duku Paul Tisa" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Duku Paul Tisa</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Bol Manyuat Akok Akech.jpg" alt="Bol Manyuat Akok Akech" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Bol Manyuat Akok Akech</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ajang Majok Ater.jpg" alt="Ajang Majok Ater" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ajang Majok Ater</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Nadir Hakim Awas.jpg" alt="Nadir Hakim Awas" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Nadir Hakim Awas</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Stephen Abyei Aleyou.jpg" alt="Stephen Abyei Aleyou" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Stephen Abyei Aleyou</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Tut John Gariay Tut.jpg" alt="Tut John Gariay Tut" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Tut John Gariay Tut</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Lino Garang Dau.jpg" alt="Lino Garang Dau" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Lino Garang Dau</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/William Bol Deng.jpg" alt="William Bol Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>William Bol Deng</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Lomayia Sebit Soroba Malimbo.jpg" alt="Lomayia Sebit Soroba Malimbo" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Lomayia Sebit Soroba Malimbo</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ajak Mayak Mabil.jpg" alt="Ajak Mayak Mabil" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ajak Mayak Mabil</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Makuei Makur Mading.jpg" alt="Makuei Makur Mading" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Makuei Makur Mading</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Alier Deng.jpg" alt="Deng Alier Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Alier Deng</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Tut Mut Luoy.jpg" alt="Tut Mut Luoy" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Tut Mut Luoy</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Both Thon Ngor.jpg" alt="Both Thon Ngor" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Both Thon Ngor</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Peter Bang Akou.jpg" alt="Peter Bang Akou" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Peter Bang Akou</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Gabriel Abraham.jpg" alt="Deng Gabriel Abraham" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Gabriel Abraham</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Adut Kuol Akol.jpg" alt="Adut Kuol Akol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Adut Kuol Akol</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Michael John Lukudu Ebele.jpg" alt="Michael John Lukudu Ebele" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Michael John Lukudu Ebele</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Dejul Luak Thoar.jpg" alt="Dejul Luak Thoar" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Dejul Luak Thoar</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Samuel Mariak Awech.jpg" alt="Samuel Mariak Awech" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Samuel Mariak Awech</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Abdella Ali Dhamir Elfaki.jpg" alt="Abdella Ali Dhamir Elfaki" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Abdella Ali Dhamir Elfaki</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Akuol Ater Nhial.jpg" alt="Akuol Ater Nhial" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Akuol Ater Nhial</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Angelo Them Mayen.jpg" alt="Angelo Them Mayen" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Angelo Them Mayen</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Elizabeth Achan Achuil Akoch.jpg" alt="Elizabeth Achan Achuil Akoch" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Elizabeth Achan Achuil Akoch</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Chan Deng Mayuot Chan.jpg" alt="Chan Deng Mayuot Chan" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Chan Deng Mayuot Chan</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Chol Riak Mijok.jpg" alt="Deng Chol Riak Mijok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Chol Riak Mijok</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Benson David Biel.jpg" alt="Benson David Biel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Benson David Biel</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Grace Ben Taban Marcello.jpg" alt="Grace Ben Taban Marcello" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Grace Ben Taban Marcello</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Malueth Maluk Pach.jpg" alt="Deng Malueth Maluk Pach" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Malueth Maluk Pach</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Majok Dau Yol.jpg" alt="Majok Dau Yol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Majok Dau Yol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ajak Joseph Deng Ajak.jpg" alt="Ajak Joseph Deng Ajak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ajak Joseph Deng Ajak</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Hellen Nyitur Mapuor.jpg" alt="Hellen Nyitur Mapuor" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Hellen Nyitur Mapuor</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Godfrey Oroma Lodai.jpg" alt="Godfrey Oroma Lodai" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Godfrey Oroma Lodai</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Kuol Marol Kuir Bul.jpg" alt="Kuol Marol Kuir Bul" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Kuol Marol Kuir Bul</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Aguek Garang Majak.jpg" alt="Aguek Garang Majak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Aguek Garang Majak</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Joseph Wol Akol Abel.jpg" alt="Joseph Wol Akol Abel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Joseph Wol Akol Abel</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Antinos A Atem.jpg" alt="Antinos A Atem" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Antinos A Atem</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Samuel Juma Marko.jpg" alt="Samuel Juma Marko" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Samuel Juma Marko</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Thomas Tombe James Francis.jpg" alt="Thomas Tombe James Francis" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Thomas Tombe James Francis</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Simon Thuok Dador.jpg" alt="Simon Thuok Dador" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Simon Thuok Dador</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Rachel Met Lueth Wol.jpg" alt="Rachel Met Lueth Wol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Rachel Met Lueth Wol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Mariak Deng Mawien Wol.jpg" alt="Mariak Deng Mawien Wol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Mariak Deng Mawien Wol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Riak Mawut Angui.jpg" alt="Riak Mawut Angui" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Riak Mawut Angui</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Atak Dut Parek Dut.jpg" alt="Atak Dut Parek Dut" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Atak Dut Parek Dut</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Sunday John Kubi Juach.jpg" alt="Sunday John Kubi Juach" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Sunday John Kubi Juach</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Alol Jacob Thiel.jpg" alt="Alol Jacob Thiel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Alol Jacob Thiel</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Garang Chol Garang.jpg" alt="Garang Chol Garang" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Garang Chol Garang</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Achai Kuol Deng.jpg" alt="Achai Kuol Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Achai Kuol Deng</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Juach Samuel Akoi.jpg" alt="Juach Samuel Akoi" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Juach Samuel Akoi</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Wilson Thembeny Deng.jpg" alt="Wilson Thembeny Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Wilson Thembeny Deng</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Lina Gabriel Samuel.jpg" alt="Lina Gabriel Samuel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Lina Gabriel Samuel</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Joseph Angok Dhurebny.jpg" alt="Joseph Angok Dhurebny" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Joseph Angok Dhurebny</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Kuot Micheal Ajith Kuot.jpg" alt="Kuot Micheal Ajith Kuot" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Kuot Micheal Ajith Kuot</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Reshida Nakai Justo.jpg" alt="Reshida Nakai Justo" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Reshida Nakai Justo</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Mariak Tong Majok.jpg" alt="Mariak Tong Majok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Mariak Tong Majok</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Michael Malith Majok.jpg" alt="Michael Malith Majok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Michael Malith Majok</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Mamer Mark Manyok.jpg" alt="Mamer Mark Manyok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Mamer Mark Manyok</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Gai Dut Jok.jpg" alt="Gai Dut Jok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Gai Dut Jok</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Anguei Mawien Akol.jpg" alt="Anguei Mawien Akol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Anguei Mawien Akol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Imon Wani Michael.jpg" alt="Imon Wani Michael" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Imon Wani Michael</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Manyuon Mawien Ayom.jpg" alt="Manyuon Mawien Ayom" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Manyuon Mawien Ayom</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/James Majier Mabor Riak.jpg" alt="James Majier Mabor Riak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>James Majier Mabor Riak</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/George Mathor Mayak Gatwech.jpg" alt="George Mathor Mayak Gatwech" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>George Mathor Mayak Gatwech</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Akot Madhel Mariak.jpg" alt="Akot Madhel Mariak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Akot Madhel Mariak</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Chol Joseph Bol.jpg" alt="Chol Joseph Bol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Chol Joseph Bol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Akol Akol Akol Akol.jpg" alt="Akol Akol Akol Akol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Akol Akol Akol Akol</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Madut Chan Madut.jpg" alt="Deng Madut Chan Madut" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Madut Chan Madut</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ngakule Barbora Ngochalla.jpg" alt="Ngakule Barbora Ngochalla" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ngakule Barbora Ngochalla</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Anguei Aguer Aguer.jpg" alt="Anguei Aguer Aguer" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Anguei Aguer Aguer</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Dau Anyuon Atem.jpg" alt="Dau Anyuon Atem" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Dau Anyuon Atem</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Rita Arual Rehan Deng.jpg" alt="Rita Arual Rehan Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Rita Arual Rehan Deng</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Chris Adut Jima.jpg" alt="Chris Adut Jima" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Chris Adut Jima</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Nelson Irama George.jpg" alt="Nelson Irama George" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Nelson Irama George</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Rayan Senose Anair.jpg" alt="Rayan Senose Anair" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Rayan Senose Anair</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Theophilus John Theophilus Wado.jpg" alt="Theophilus John Theophilus Wado" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Theophilus John Theophilus Wado</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/James Akook Bol Ngor.jpg" alt="James Akook Bol Ngor" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>James Akook Bol Ngor</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Aguil Ater Madut Ater.jpg" alt="Aguil Ater Madut Ater" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Aguil Ater Madut Ater</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ngor Agook Kuol Mayen.jpg" alt="Ngor Agook Kuol Mayen" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ngor Agook Kuol Mayen</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Vilmon Ewot Alfred.jpg" alt="Vilmon Ewot Alfred" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Vilmon Ewot Alfred</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Alich Garang Majok.jpg" alt="Alich Garang Majok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Alich Garang Majok</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Kharbino Wel Majok.jpg" alt="Kharbino Wel Majok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Kharbino Wel Majok</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Aleu Nhial Bol.jpg" alt="Aleu Nhial Bol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Aleu Nhial Bol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Galuak Makuach Reat.jpg" alt="Galuak Makuach Reat" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Galuak Makuach Reat</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Tony Natale Emillio.jpg" alt="Tony Natale Emillio" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Tony Natale Emillio</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Milton Ngor Riak.jpg" alt="Milton Ngor Riak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Milton Ngor Riak</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Arop Longar Arop.jpg" alt="Arop Longar Arop" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Arop Longar Arop</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Elijah Deng Ajang.jpg" alt="Elijah Deng Ajang" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Elijah Deng Ajang</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Vincent Maker Guar Machek.jpg" alt="Vincent Maker Guar Machek" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Vincent Maker Guar Machek</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Abraham Agany Adok Ayom.jpg" alt="Abraham Agany Adok Ayom" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Abraham Agany Adok Ayom</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Nhial Abraham Maluac Nhial.jpg" alt="Nhial Abraham Maluac Nhial" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Nhial Abraham Maluac Nhial</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Steven Mach Chol.jpg" alt="Steven Mach Chol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Steven Mach Chol</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/William Chol Kuek.jpg" alt="William Chol Kuek" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>William Chol Kuek</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Isaac Atem Dau.jpg" alt="Isaac Atem Dau" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Isaac Atem Dau</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Thokbor John Mach Diing.jpg" alt="Thokbor John Mach Diing" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Thokbor John Mach Diing</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Moun Abiokpiu Matong.jpg" alt="Moun Abiokpiu Matong" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Moun Abiokpiu Matong</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Paul Manhom Kocdong.jpg" alt="Paul Manhom Kocdong" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Paul Manhom Kocdong</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Angela Juru James Sworo.jpg" alt="Angela Juru James Sworo" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Angela Juru James Sworo</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Joshua Baraka Elinathan.jpg" alt="Joshua Baraka Elinathan" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Joshua Baraka Elinathan</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Elijah Kuir Garang.jpg" alt="Deng Elijah Kuir Garang" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Elijah Kuir Garang</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Paduol Adewun Mawut.jpg" alt="Paduol Adewun Mawut" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Paduol Adewun Mawut</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Hilmi Saeed Komi.jpg" alt="Hilmi Saeed Komi" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Hilmi Saeed Komi</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Moigo Erneo Bernardo.jpg" alt="Moigo Erneo Bernardo" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Moigo Erneo Bernardo</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Panyang Achiek Panyang Thuch.jpg" alt="Panyang Achiek Panyang Thuch" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Panyang Achiek Panyang Thuch</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Abhor Michael Abraham.jpg" alt="Abhor Michael Abraham" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Abhor Michael Abraham</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Apadiet Kur Noi.jpg" alt="Apadiet Kur Noi" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Apadiet Kur Noi</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Atong Regina Tier.jpg" alt="Atong Regina Tier" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Atong Regina Tier</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Osman Adam Osman.jpg" alt="Osman Adam Osman" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Osman Adam Osman</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Alice Apoko Placido.jpg" alt="Alice Apoko Placido" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Alice Apoko Placido</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Emmanuel Kenyi Samuel.jpg" alt="Emmanuel Kenyi Samuel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Emmanuel Kenyi Samuel</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Angelo Ater Monydeng.jpg" alt="Angelo Ater Monydeng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Angelo Ater Monydeng</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Peter Mou Mou Dut.jpg" alt="Peter Mou Mou Dut" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Peter Mou Mou Dut</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Gattiek Mut Gai.jpg" alt="Gattiek Mut Gai" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Gattiek Mut Gai</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Achok Joseph Malish.jpg" alt="Achok Joseph Malish" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Achok Joseph Malish</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Kongor Mark Diing.jpg" alt="Kongor Mark Diing" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Kongor Mark Diing</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Benjamin Tokmac Khamcil.jpg" alt="Benjamin Tokmac Khamcil" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Benjamin Tokmac Khamcil</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Abol Manyiel Chol.jpg" alt="Abol Manyiel Chol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Abol Manyiel Chol</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Meen Maley.jpg" alt="Deng Meen Maley" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Meen Maley</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Angau Thon Dibek Kur.jpg" alt="Angau Thon Dibek Kur" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Angau Thon Dibek Kur</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Benjamin Clement Wani.jpg" alt="Benjamin Clement Wani" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Benjamin Clement Wani</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Angeth Arou Deng.jpg" alt="Angeth Arou Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Angeth Arou Deng</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Nyaroma Gideon Gai.jpg" alt="Nyaroma Gideon Gai" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Nyaroma Gideon Gai</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Rebecca Pantheer Majok Chol.jpg" alt="Rebecca Pantheer Majok Chol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Rebecca Pantheer Majok Chol</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Anzo John Keri.jpg" alt="Anzo John Keri" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Anzo John Keri</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Ayuel Muorwel.jpg" alt="Deng Ayuel Muorwel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Ayuel Muorwel</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Thiak Ayuen Thiak.jpg" alt="Thiak Ayuen Thiak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Thiak Ayuen Thiak</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Monyluak Agueng Kur Akok.jpg" alt="Monyluak Agueng Kur Akok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Monyluak Agueng Kur Akok</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/James Awet Awet Awet.jpg" alt="James Awet Awet Awet" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>James Awet Awet Awet</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Apien Akulino Akuei.jpg" alt="Apien Akulino Akuei" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Apien Akulino Akuei</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/David Bol Manyang.jpg" alt="David Bol Manyang" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>David Bol Manyang</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Jong Chol Mouter.jpg" alt="Jong Chol Mouter" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Jong Chol Mouter</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/John Madut Akok.jpg" alt="John Madut Akok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>John Madut Akok</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Joyce Iliha Pio.jpg" alt="Joyce Iliha Pio" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Joyce Iliha Pio</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Wajia Gloria Santino.jpg" alt="Wajia Gloria Santino" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Wajia Gloria Santino</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Mariak Mariik Tong Mariik.jpg" alt="Mariak Mariik Tong Mariik" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Mariak Mariik Tong Mariik</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Job Logala Solomon.jpg" alt="Job Logala Solomon" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Job Logala Solomon</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Agei Maluil Jok.jpg" alt="Agei Maluil Jok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Agei Maluil Jok</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Madit James Ayuen.jpg" alt="Madit James Ayuen" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Madit James Ayuen</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Wieh Kuol Kuany.jpg" alt="Wieh Kuol Kuany" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Wieh Kuol Kuany</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ochaya Reagan Paul.jpg" alt="Ochaya Reagan Paul" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ochaya Reagan Paul</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Adut Achuoth Mathon.jpg" alt="Adut Achuoth Mathon" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Adut Achuoth Mathon</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Francis Lang Machel.jpg" alt="Francis Lang Machel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Francis Lang Machel</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Gooljak Malou Mangok.jpg" alt="Gooljak Malou Mangok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Gooljak Malou Mangok</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Suzy Konga Satimon.jpg" alt="Suzy Konga Satimon" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Suzy Konga Satimon</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Dici Emmanuel Hillary.jpg" alt="Dici Emmanuel Hillary" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Dici Emmanuel Hillary</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Salvatore Akeen Koor.jpg" alt="Salvatore Akeen Koor" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Salvatore Akeen Koor</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ayuel Atem Aguek.jpg" alt="Ayuel Atem Aguek" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ayuel Atem Aguek</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Aweng Kuot Deng.jpg" alt="Aweng Kuot Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Aweng Kuot Deng</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Marial Kuon Chuol.jpg" alt="Marial Kuon Chuol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Marial Kuon Chuol</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Adior Thon Adior.jpg" alt="Adior Thon Adior" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Adior Thon Adior</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Rose Akon Alfred.jpg" alt="Rose Akon Alfred" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Rose Akon Alfred</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/B-G9.jpg" alt="B-G9" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>B-G9</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Mary Justin Allan.jpg" alt="Mary Justin Allan" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Mary Justin Allan</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ngong Ajak Mawien.jpg" alt="Ngong Ajak Mawien" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ngong Ajak Mawien</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Angelina Achol Kuol.jpg" alt="Angelina Achol Kuol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Angelina Achol Kuol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Agum Martha Mou.jpg" alt="Agum Martha Mou" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Agum Martha Mou</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Joseph Arike Santos Loparangi.jpg" alt="Joseph Arike Santos Loparangi" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Joseph Arike Santos Loparangi</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Judis Francis Wani.jpg" alt="Judis Francis Wani" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Judis Francis Wani</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Garang Joseph Thon Garang.jpg" alt="Garang Joseph Thon Garang" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Garang Joseph Thon Garang</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Kon Deng Kon.jpg" alt="Kon Deng Kon" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Kon Deng Kon</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Louis Garang Manasses.jpg" alt="Louis Garang Manasses" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Louis Garang Manasses</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Simon Sebit Abuk.jpg" alt="Simon Sebit Abuk" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Simon Sebit Abuk</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ayom Makol.jpg" alt="Ayom Makol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ayom Makol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/John William Kuag Bang.jpg" alt="John William Kuag Bang" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>John William Kuag Bang</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Peter Wani Isaac.jpg" alt="Peter Wani Isaac" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Peter Wani Isaac</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Minyang Joseph Deng.jpg" alt="Minyang Joseph Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Minyang Joseph Deng</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/John Hassen Goliver Doctor.jpg" alt="John Hassen Goliver Doctor" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>John Hassen Goliver Doctor</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Gabriel Manyok Bul Akech.jpg" alt="Gabriel Manyok Bul Akech" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Gabriel Manyok Bul Akech</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Riak Atem Riak.jpg" alt="Riak Atem Riak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Riak Atem Riak</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Eliza Yier Michael Adongwei.jpg" alt="Eliza Yier Michael Adongwei" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Eliza Yier Michael Adongwei</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Samuel Dak Anyawin.jpg" alt="Samuel Dak Anyawin" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Samuel Dak Anyawin</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Anna Akima Kachuol.jpg" alt="Anna Akima Kachuol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Anna Akima Kachuol</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Nujumi Bennett Philip.jpg" alt="Nujumi Bennett Philip" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Nujumi Bennett Philip</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ring Piol Malek.jpg" alt="Ring Piol Malek" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ring Piol Malek</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Aniek Monyluk Abiel Monykuany.jpg" alt="Aniek Monyluk Abiel Monykuany" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Aniek Monyluk Abiel Monykuany</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Angong Augustino Agoth Mou.jpg" alt="Angong Augustino Agoth Mou" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Angong Augustino Agoth Mou</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Kawaja Chadong.jpg" alt="Kawaja Chadong" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Kawaja Chadong</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ayom Ayom Wek Kuanyin.jpg" alt="Ayom Ayom Wek Kuanyin" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ayom Ayom Wek Kuanyin</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Kuot Maduok Madut Akol.jpg" alt="Kuot Maduok Madut Akol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Kuot Maduok Madut Akol</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Elizabeth Yom Chol.jpg" alt="Elizabeth Yom Chol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Elizabeth Yom Chol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Garang Garang Deng.jpg" alt="Deng Garang Garang Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Garang Garang Deng</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Manasseh Ladu Anthony.jpg" alt="Manasseh Ladu Anthony" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Manasseh Ladu Anthony</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ngbarago Roseline Paulino.jpg" alt="Ngbarago Roseline Paulino" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ngbarago Roseline Paulino</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ngor Ayiik Deng.jpg" alt="Ngor Ayiik Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ngor Ayiik Deng</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Chandiga Emmanuel Jino.jpg" alt="Chandiga Emmanuel Jino" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Chandiga Emmanuel Jino</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/John Chol Peter Bol.jpg" alt="John Chol Peter Bol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>John Chol Peter Bol</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Ayuek Ajuach Deng.jpg" alt="Ayuek Ajuach Deng" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Ayuek Ajuach Deng</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Marline Zereda Paulino.jpg" alt="Marline Zereda Paulino" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Marline Zereda Paulino</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Makeny Kon Makur.jpg" alt="Makeny Kon Makur" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Makeny Kon Makur</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Mabior William Daniel.jpg" alt="Mabior William Daniel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Mabior William Daniel</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Samuel Biel Mayang Bol.jpg" alt="Samuel Biel Mayang Bol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Samuel Biel Mayang Bol</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Akuol Margret Makuei Ajak.jpg" alt="Akuol Margret Makuei Ajak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Akuol Margret Makuei Ajak</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Mabol Akech Jongkuc.jpg" alt="Mabol Akech Jongkuc" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Mabol Akech Jongkuc</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Athiei Johson Thon.jpg" alt="Athiei Johson Thon" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Athiei Johson Thon</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Henry Jembi Santino.jpg" alt="Henry Jembi Santino" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Henry Jembi Santino</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Abuna Michael Odera.jpg" alt="Abuna Michael Odera" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Abuna Michael Odera</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Dot Ador.jpg" alt="Deng Dot Ador" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Dot Ador</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Dominic Kizito Joseph Lemor.jpg" alt="Dominic Kizito Joseph Lemor" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Dominic Kizito Joseph Lemor</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Abraham Mabor Malak.jpg" alt="Abraham Mabor Malak" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Abraham Mabor Malak</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Jeremiah Goch Bith.jpg" alt="Jeremiah Goch Bith" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Jeremiah Goch Bith</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Gatchang William Ruot Kulang.jpg" alt="Gatchang William Ruot Kulang" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Gatchang William Ruot Kulang</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Bakita Ayel Yel.jpg" alt="Bakita Ayel Yel" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Bakita Ayel Yel</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Rufo Stephen Rufo.jpg" alt="Rufo Stephen Rufo" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Rufo Stephen Rufo</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Joseph Deng Kuol Garang.jpg" alt="Joseph Deng Kuol Garang" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Joseph Deng Kuol Garang</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Simon Makoi Adut.jpg" alt="Simon Makoi Adut" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Simon Makoi Adut</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/John Kher Moses.jpg" alt="John Kher Moses" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>John Kher Moses</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Deng Ador Thon.jpg" alt="Deng Ador Thon" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Deng Ador Thon</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/John Makuei Makuach.jpg" alt="John Makuei Makuach" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>John Makuei Makuach</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Gabriel Mach Abuol.jpg" alt="Gabriel Mach Abuol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Gabriel Mach Abuol</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Mavonoku John Waure Henry.jpg" alt="Mavonoku John Waure Henry" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Mavonoku John Waure Henry</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cys">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Jackline Hadia Ruben.jpg" alt="Jackline Hadia Ruben" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Jackline Hadia Ruben</h3>
+                    <p>Cyber Security</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Majok Guing Deng Kuol.jpg" alt="Majok Guing Deng Kuol" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Majok Guing Deng Kuol</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Anyuon Agot Anyuon.jpg" alt="Anyuon Agot Anyuon" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Anyuon Agot Anyuon</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Arkangelo Aduol Angok.jpg" alt="Arkangelo Aduol Angok" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Arkangelo Aduol Angok</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Madut Lual Mayom.jpg" alt="Madut Lual Mayom" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Madut Lual Mayom</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/James Gum Alembany.jpg" alt="James Gum Alembany" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>James Gum Alembany</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Biar Moses Mayen.jpg" alt="Biar Moses Mayen" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Biar Moses Mayen</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Mohammed Rashid Amin.jpg" alt="Mohammed Rashid Amin" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Mohammed Rashid Amin</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Elizabeth Mandera Jackson.jpg" alt="Elizabeth Mandera Jackson" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Elizabeth Mandera Jackson</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card cs">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Gai Akuei Manyuat.jpg" alt="Gai Akuei Manyuat" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Gai Akuei Manyuat</h3>
+                    <p>Computer Science</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/John Ladu Michael Nyombe.jpg" alt="John Ladu Michael Nyombe" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>John Ladu Michael Nyombe</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Luka Kiir Deng Kiir.jpg" alt="Luka Kiir Deng Kiir" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Luka Kiir Deng Kiir</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+
+            <div class="card it">
+                <div class="image-wrapper">
+                    <img src="./thumbnails/Samuel Pager Abai Beny.jpg" alt="Samuel Pager Abai Beny" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3>Samuel Pager Abai Beny</h3>
+                    <p>Information Technology</p>
+                </div>
+            </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 University of Juba AI. All rights reserved.</p>
+</footer>
+
+<!-- Interactive Filtering Script -->
+<script>
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button state
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+
+            // Filter cards dynamically
+            cards.forEach(card => {
+                if (filter === 'all' || card.classList.contains(filter)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
